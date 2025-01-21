@@ -1,7 +1,7 @@
 // RootLayout.tsx
-import "./globals.css";
+import Head from "next/head";
 
-export const metadata = {
+const metadata = {
   title: "Fi Naezer - Bloemen schilderijen",
   description: "Bloemen schilderijen en tekeningen",
 };
@@ -13,6 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
       <body className={`antialiased`}>{children}</body>
     </html>
   );
