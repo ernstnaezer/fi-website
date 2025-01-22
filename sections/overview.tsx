@@ -3,27 +3,27 @@ import ImageGrid from "@/components/ImageGrid";
 
 const projects = [
   {
-    description: "Olie op doek 70 x 50 cm, 2023",
+    description: "Engelse roos, olie op doek 40 x 50 cm, 2024",
     image: "/assets/IMG_1249.png",
   },
   {
-    description: "Olie op doek 70 x 50 cm, 2023",
+    description: "Rozen en hortentias, olie op doek 50 x 60 cm, 2024",
     image: "/assets/IMG_2488.png",
   },
   {
-    description: "Olie op doek 70 x 50 cm, 2023",
+    description: "Klimroos, olie op doek 50 x 70 cm, 2024",
     image: "/assets/IMG_1707.png",
   },
   {
-    description: "Pastelkrijt op papier 50 x 40 cm, 2023",
+    description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_1681.png",
   },
   {
-    description: "Pastelkrijt op papier 50 x 40 cm, 2023",
+    description: "Engelse roos, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_2185.png",
   },
   {
-    description: "Pastelkrijt op papier 50 x 40 cm, 2023",
+    description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_2210.png",
   },
 ];

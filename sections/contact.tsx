@@ -37,11 +37,10 @@ const ContactPage: React.FC = () => {
               passie draag ik nog steeds bij me.
             </p>
             <p className="mt-4">
-              Ik raak geïnspireerd door beroemde kunstenaars zoals Monet, Van
+              Ik ben geïnspireerd door beroemde kunstenaars zoals Monet, Van
               Gogh en Escher, en experimenteer graag met verschillende
               technieken en materialen: olieverf, aquarel, pastel, acryl, batik,
-              en meer. Op deze website vind je een groot deel van mijn
-              kunstwerken.
+              en meer.
             </p>
             <p className="mt-4">
               Naast kunst ben ik dol op de natuur en tuinieren. Veel van mijn
@@ -67,12 +66,26 @@ const ContactPage: React.FC = () => {
               <div>
                 <h3 className="text-lg font-bold mb-2">Social Media</h3>
                 <ul className="space-y-2">
-                  <li>Instagram</li>
+                  <li>
+                    <a
+                      href="http://instagram.com/finaezerart"
+                      className="text-red-500 underline"
+                    >
+                      Instagram
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-lg font-bold mb-2">E-mail</h3>
-                <p className="text-lg font-light">info@finaezer.nl</p>
+                <p className="text-lg font-light">
+                  <a
+                    href="mailto:info@finaezer.nl"
+                    className="text-red-500 underline"
+                  >
+                    info@finaezer.nl
+                  </a>
+                </p>
               </div>
             </div>
           </div>

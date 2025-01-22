@@ -4,19 +4,19 @@ import ImageGrid from "@/components/ImageGrid"; // Update the path as needed
 const CustomWork: React.FC = () => {
   const examples = [
     {
-      description: "Ijsvogel, 2021",
+      description: "Ijsvogel, acryl op doek 30 x 40 cm, 2021",
       image: "/assets/custom-work-1.jpeg",
     },
     {
-      description: "Ijsvogel aan de muur, 2021",
-      image: "/assets/custom-work-1-wall.jpeg",
+      description: "Ijsvogel aan de muur",
+      image: "/assets/custom-work-1-wall.png",
     },
     {
-      description: "Een tweede voorbeeld van een kunstwerk op maat.",
+      description: "Zonnebloem met vlinders, olie op doek 50 x 70 cm, 2024",
       image: "/assets/custom-work-2.jpeg",
     },
     {
-      description: "Een tweede voorbeeld in een interieursetting.",
+      description: "Zonnebloem met vlinders aan de muur",
       image: "/assets/custom-work-2-wall.jpeg",
     },
   ];
@@ -52,7 +52,7 @@ const CustomWork: React.FC = () => {
       {/* Samples Section */}
       <div className="mt-10">
         <h2 className="text-2xl font-bold mb-6 text-center">
-          Opdrachten voor klanten
+          Voorgaande opdrachten
         </h2>
         <div className="flex flex-wrap justify-center">
           <ImageGrid
