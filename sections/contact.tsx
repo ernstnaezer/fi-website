@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import FiImage from "@/public/assets/Fi.png";
+import ExportedImage from "next-image-export-optimizer";
 
 const ContactPage: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const ContactPage: React.FC = () => {
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Image Section */}
         <div className="relative w-full h-80 md:h-auto flex items-center justify-center">
-          <Image
+          <ExportedImage
             src={FiImage}
             alt="Fi Naezer"
             className="rounded-lg object-cover max-w-full h-full"

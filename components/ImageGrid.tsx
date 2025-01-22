@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 interface ImageGridProps {
   images: {
@@ -49,7 +49,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
           <div key={index} className="flex flex-col">
             {/* Image container */}
             <div className="relative aspect-[9/16] overflow-hidden rounded-lg">
-              <Image
+              <ExportedImage
                 src={item.image}
                 alt={item.description}
                 fill

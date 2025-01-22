@@ -1,18 +1,23 @@
 "use client";
 import React from "react";
 import { displayFont } from "@/utils/fonts";
+import ExportedImage from "next-image-export-optimizer";
 
 const Hero: React.FC = () => {
   return (
     <div className="relative min-h-screen bg-gray-800 overflow-hidden">
       {/* Background image with refined gradient */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center animate-zoom"
-          style={{
-            backgroundImage: "url('/assets/detail.png')",
-          }}
-        ></div>
+        {/* Using next/image for the background */}
+        <div className="absolute inset-0 w-full h-full animate-zoom">
+          <ExportedImage
+            src="/assets/detail.png"
+            alt="Background detail"
+            layout="fill"
+            objectFit="cover"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-transparent h-[33vh]"></div>
       </div>
 
