@@ -1,5 +1,6 @@
 // RootLayout.tsx
 import Head from "next/head";
+import "./globals.css";
 
 const metadata = {
   title: "Fi Naezer - Bloemen schilderijen",
