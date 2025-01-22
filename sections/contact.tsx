@@ -10,55 +10,51 @@ const ContactPage: React.FC = () => {
         <h1 className="text-4xl md:text-6xl font-bold">Contact</h1>
       </div>
 
-      {/* About Me Section */}
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+      {/* Content Section */}
+      <div className="relative mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Image Section */}
-        <div className="relative w-full h-80 md:h-auto flex items-center justify-center">
+        <div className="relative w-full max-w-lg mx-auto">
           <ExportedImage
             src={FiImage}
             alt="Fi Naezer"
-            className="rounded-lg object-cover max-w-full h-full"
-            fill // Ensures the image fills its container
-            style={{
-              objectFit: "cover", // Ensures it covers the container properly
-            }}
+            width={600}
+            height={600}
+            className="rounded-lg object-cover w-full h-auto"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
           />
         </div>
 
         {/* Text Section */}
-        <div>
-          <div className="text-lg leading-relaxed">
-            <h2 className="text-2xl font-bold mb-4">Over Mij</h2>
-            <p>
-              Mijn naam is Fi Naezer en ik hou van tekenen en schilderen. Al
-              vanaf mijn jeugd ben ik dol op kunst. Op school maakte ik graag
-              wenskaarten, posters, tekeningen voor de klas, en greep ik elk
-              moment aan om mijn omgeving mooier te maken met mijn creaties. Die
-              passie draag ik nog steeds bij me.
-            </p>
-            <p className="mt-4">
-              Ik ben geïnspireerd door beroemde kunstenaars zoals Monet, Van
-              Gogh en Escher, en experimenteer graag met verschillende
-              technieken en materialen: olieverf, aquarel, pastel, acryl, batik,
-              en meer.
-            </p>
-            <p className="mt-4">
-              Naast kunst ben ik dol op de natuur en tuinieren. Veel van mijn
-              werken zijn geïnspireerd door bloemen die ik zelf in mijn tuin
-              kweek. Voor mij is dit de perfecte manier om mijn twee passies te
-              combineren.
-            </p>
-            <p className="mt-4">
-              De kunstwerken hierboven zijn te koop. Stuur me een{" "}
-              <a
-                href="mailto:info@finaezer.nl"
-                className="text-red-500 underline"
-              >
-                mailtje
-              </a>
-              , en ik neem contact met je op.
-            </p>
-          </div>
+        <div className="text-lg leading-relaxed">
+          <h2 className="text-2xl font-bold mb-4">Over Mij</h2>
+          <p>
+            Mijn naam is Fi Naezer en ik hou van tekenen en schilderen. Al vanaf
+            mijn jeugd ben ik dol op kunst. Op school maakte ik graag
+            wenskaarten, posters, tekeningen voor de klas, en greep ik elk
+            moment aan om mijn omgeving mooier te maken met mijn creaties. Die
+            passie draag ik nog steeds bij me.
+          </p>
+          <p className="mt-4">
+            Ik ben geïnspireerd door beroemde kunstenaars zoals Monet, Van Gogh
+            en Escher, en experimenteer graag met verschillende technieken en
+            materialen: olieverf, aquarel, pastel, acryl, batik, en meer.
+          </p>
+          <p className="mt-4">
+            Naast kunst ben ik dol op de natuur en tuinieren. Veel van mijn
+            werken zijn geïnspireerd door bloemen die ik zelf in mijn tuin
+            kweek. Voor mij is dit de perfecte manier om mijn twee passies te
+            combineren.
+          </p>
+          <p className="mt-4">
+            De kunstwerken hierboven zijn te koop. Stuur me een{" "}
+            <a
+              href="mailto:info@finaezer.nl"
+              className="text-red-500 underline"
+            >
+              mailtje
+            </a>
+            , en ik neem contact met je op.
+          </p>
 
           {/* Contact Information */}
           <div className="mt-10">
