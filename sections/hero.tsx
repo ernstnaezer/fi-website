@@ -13,12 +13,12 @@ const Hero: React.FC = () => {
           <ExportedImage
             src="/assets/detail.png"
             alt="Background detail"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-transparent h-[33vh]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-transparent h-[33vh]"></div>
       </div>
 
       {/* Content */}
@@ -38,8 +38,9 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Button */}
-        <div className="flex justify-center mb-24">
+        <div className="flex justify-center">
           <button
+            aria-label="Scroll to projects"
             onClick={() => {
               const projectsSection = document.getElementById("projects");
               if (projectsSection) {
@@ -49,7 +50,7 @@ const Hero: React.FC = () => {
                 });
               }
             }}
-            className="px-16 py-4 bg-white text-black text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="absolute bottom-24 md:bottom-16 px-8 md:px-16 py-3 md:py-4 bg-white text-black text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Ontdek
           </button>
@@ -69,6 +70,7 @@ const Hero: React.FC = () => {
 
         .animate-zoom {
           animation: zoom 5s ease-out forwards;
+          will-change: transform;
         }
       `}</style>
     </div>
