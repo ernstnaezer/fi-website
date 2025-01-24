@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Button */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-[24vh] md:mb-[10vh]">
           <button
             aria-label="Scroll to projects"
             onClick={() => {
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
                 });
               }
             }}
-            className="absolute bottom-24 md:bottom-16 px-8 md:px-16 py-3 md:py-4 bg-white text-black text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="absolute px-8 md:px-16 py-3 md:py-4 bg-white text-black text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Ontdek
           </button>
