@@ -15,16 +15,20 @@ const projects = [
     image: "/assets/IMG_1707.png",
   },
   {
+    description: "Zonnebloemen stilleven, olie op doek 40 x 50 cm, 2025",
+    image: "/assets/IMG_3200.png",
+  },  
+  {
+    description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
+    image: "/assets/IMG_2210.png",
+  },
+  {
     description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_1681.png",
   },
   {
     description: "Engelse roos, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_2185.png",
-  },
-  {
-    description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
-    image: "/assets/IMG_2210.png",
   },
 ];
 
