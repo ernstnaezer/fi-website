@@ -30,6 +30,10 @@ const projects = [
     description: "Engelse roos, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_2185.png",
   },
+  {
+    description: "Iris in tuin, pastelkrijt op papier 20 x 30 cm, 2025",
+    image: "/assets/IMG_2684.png",
+  },
 ];
 
 const Overview: React.FC = () => {
