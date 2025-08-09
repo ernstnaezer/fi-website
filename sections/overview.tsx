@@ -39,6 +39,10 @@ const projects = [
     image: "/assets/IMG_3432.png",
   },
   {
+    description: "Cosmea in tuin, pastelkrijt op papier 20 x 30 cm, 2025",
+    image: "/assets/IMG_3441.png",
+  },
+  {
     description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_1681.png",
   },
