@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
                 });
               }
             }}
-            className="absolute px-8 md:px-16 py-3 md:py-4 bg-white text-black text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="absolute px-8 md:px-16 py-3 md:py-4 bg-white text-black text-lg font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Ontdek
           </button>
