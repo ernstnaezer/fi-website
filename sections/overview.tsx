@@ -21,6 +21,7 @@ const projects = [
   {
     description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_2210.png",
+    sold: true,
   },
   {
     description: "Zonnebloemen in vaas, pastelkrijt op papier 20 x 30 cm, 2025",
@@ -29,6 +30,7 @@ const projects = [
   {
     description: "Engelse roos, pastelkrijt op papier 20 x 30 cm, 2024",
     image: "/assets/IMG_2185.png",
+    sold: true,
   },
   {
     description: "Iris in tuin, pastelkrijt op papier 20 x 30 cm, 2025",
@@ -37,10 +39,12 @@ const projects = [
   {
     description: "Dahlias (Pink petticoat) in tuin, pastelkrijt op papier 20 x 30 cm, 2025",
     image: "/assets/IMG_3432.png",
+    sold: true,
   },
   {
     description: "Cosmea in tuin, pastelkrijt op papier 20 x 30 cm, 2025",
     image: "/assets/IMG_3441.png",
+    sold: true,
   },
   {
     description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",

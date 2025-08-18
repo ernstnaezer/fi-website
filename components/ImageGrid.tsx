@@ -8,6 +8,7 @@ import ImageOverlay from "./ImageOverlay";
 interface ImageItem {
   description: string;
   image: string;
+  sold?: boolean; // Optional property to indicate if the work is sold
 }
 
 // Define the props for the ImageGrid component
@@ -81,6 +82,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
               key={index}
               src={item.image}
               description={item.description}
+              sold={item.sold}
               onClick={() => handleImageClick(item)}
             />
           ))}
