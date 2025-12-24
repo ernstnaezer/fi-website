@@ -47,12 +47,16 @@ const projects = [
     sold: true,
   },
   {
-    description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
-    image: "/assets/IMG_1681.png",
+    description: "Zonnebloemen in tuin, pastelkrijt op papier 20 x 30 cm, 2024",
+    image: "/assets/IMG_3758.png",
   },
   {
-    description: "Pompoen en sinasappels, pastelkrijt op papier 20 x 30 cm, 2024",
-    image: "/assets/IMG_3433.png",
+    description: "Dahlias in vaas, pastelkrijt op papier 20 x 30 cm, 2024",
+    image: "/assets/IMG_3890.png",
+  },
+  {
+    description: "Droogbloemen, pastelkrijt op papier 20 x 30 cm, 2024",
+    image: "/assets/IMG_1681.png",
   },
 ];
 
