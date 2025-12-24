@@ -47,11 +47,11 @@ const projects = [
     sold: true,
   },
   {
-    description: "Zonnebloemen in tuin, pastelkrijt op papier 20 x 30 cm, 2024",
+    description: "Zonnebloemen in tuin, pastelkrijt op papier 20 x 30 cm, 2025",
     image: "/assets/IMG_3758.png",
   },
   {
-    description: "Dahlias in vaas, pastelkrijt op papier 20 x 30 cm, 2024",
+    description: "Dahlias in vaas, pastelkrijt op papier 20 x 30 cm, 2025",
     image: "/assets/IMG_3890.png",
   },
   {
