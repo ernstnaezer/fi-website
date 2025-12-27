@@ -4,10 +4,19 @@ import emailjs from "@emailjs/browser";
 
 interface ReservationFormProps {
   workTitle: string;
+  technique?: string; // Nieuw: optionele velden voor de mail
+  size?: string;
+  year?: number;
   onClose: () => void;
 }
 
-const ReservationForm: React.FC<ReservationFormProps> = ({ workTitle, onClose }) => {
+const ReservationForm: React.FC<ReservationFormProps> = ({
+  workTitle,
+  technique,
+  size,
+  year,
+  onClose
+}) => {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
@@ -60,7 +69,12 @@ const ReservationForm: React.FC<ReservationFormProps> = ({ workTitle, onClose })
       </p>
 
       <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
+        {/* Verborgen velden voor EmailJS template logica */}
         <input type="hidden" name="title" value={workTitle} />
+        <input type="hidden" name="isCustom" value="false" />
+        <input type="hidden" name="technique" value={technique || ""} />
+        <input type="hidden" name="size" value={size || ""} />
+        <input type="hidden" name="year" value={year || ""} />
 
         <div>
           <label className="block text-sm font-medium mb-1 text-gray-700">Naam</label>

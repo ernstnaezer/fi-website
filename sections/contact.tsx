@@ -5,10 +5,6 @@ import ExportedImage from "next-image-export-optimizer";
 const ContactPage: React.FC = () => {
   return (
     <div className="bg-white text-black px-6 md:px-20 py-10">
-      {/* Title */}
-      <div className="text-left">
-        <h1 className="text-4xl md:text-6xl font-bold">Contact</h1>
-      </div>
 
       {/* Content Section */}
       <div className="relative mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -45,20 +41,10 @@ const ContactPage: React.FC = () => {
             kweek. Voor mij is dit de perfecte manier om mijn twee passies te
             combineren.
           </p>
-          <p className="mt-4">
-            De kunstwerken hierboven zijn te koop. Stuur me een{" "}
-            <a
-              href="mailto:info@finaezer.nl"
-              className="text-red-500 underline"
-            >
-              mailtje
-            </a>
-            , en ik neem contact met je op.
-          </p>
 
           {/* Contact Information */}
           <div className="mt-10">
-            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col space-y-2">
               <div>
                 <h3 className="text-lg font-bold mb-2">Social Media</h3>
                 <ul className="space-y-2">
@@ -71,17 +57,6 @@ const ContactPage: React.FC = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2">E-mail</h3>
-                <p className="text-lg font-light">
-                  <a
-                    href="mailto:info@finaezer.nl"
-                    className="text-red-500 underline"
-                  >
-                    info@finaezer.nl
-                  </a>
-                </p>
               </div>
             </div>
           </div>

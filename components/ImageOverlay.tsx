@@ -21,6 +21,10 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({
 }) => {
   const [showReservation, setShowReservation] = useState(false);
 
+  // Logica voor het filteren van optionele velden
+  const details = [technique, size].filter(Boolean).join(", ");
+  const displayYear = year ? ` (${year})` : "";
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -36,7 +40,6 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({
   }, [onClose]);
 
   return (
-    // The modal backdrop - Lighter background
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-95 p-4 md:p-10 cursor-default overflow-y-auto"
       onClick={onClose}
@@ -45,7 +48,6 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({
         className="relative w-full max-w-6xl bg-white shadow-2xl rounded-xl overflow-hidden flex flex-col md:flex-row min-h-[60vh] md:h-[80vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-black text-4xl z-50 hover:text-gray-600 transition leading-none"
@@ -54,7 +56,6 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({
           &times;
         </button>
 
-        {/* Left: Image Section */}
         <div className="relative w-full md:w-3/5 h-[40vh] md:h-full bg-gray-50">
           <ExportedImage
             src={image}
@@ -65,17 +66,17 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({
           />
         </div>
 
-        {/* Right: Info Section */}
         <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col overflow-y-auto">
           {showReservation ? (
             <ReservationForm
               workTitle={title}
+              size={size}
+              technique={technique}
+              year={year}
               onClose={() => setShowReservation(false)}
             />
           ) : (
             <>
-
-              {/* Status / Price */}
               <div className="mb-6 mt-24">
                 {sold ? (
                   <span className="inline-block bg-black text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -88,16 +89,19 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({
                 ) : null}
               </div>
 
-              {/* Description */}
               <div className="prose text-gray-600 mb-8 leading-relaxed">
-                <p className="font-bold">{title}</p>
-                <p>{technique}, {size} ({year})</p>
-                <p className="mt-6">
-                  {copy}
-                </p>
+                <p className="font-bold text-lg text-black">{title}</p>
+                {/* Gecombineerde weergave van optionele details */}
+                {(details || displayYear) && (
+                  <p>{details}{displayYear}</p>
+                )}
+                {copy && (
+                  <p className="mt-6">
+                    {copy}
+                  </p>
+                )}
               </div>
 
-              {/* Action Button */}
               <div className="mt-auto pt-6 border-t border-gray-100">
                 {!sold && price ? (
                   <button
