@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "next": "15.1.5",
     "next-image-export-optimizer": "^1.18.0",
     "react": "^19.0.0",

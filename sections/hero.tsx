@@ -37,8 +37,8 @@ const Hero: React.FC = () => {
           </h1>
         </div>
 
-        {/* Button */}
-        <div className="flex justify-center mb-[24vh] md:mb-[10vh]">
+        {/* Button - Moved up by increasing margin-bottom */}
+        <div className="flex justify-center mb-[30vh] md:mb-[15vh]">
           <button
             aria-label="Scroll to projects"
             onClick={() => {

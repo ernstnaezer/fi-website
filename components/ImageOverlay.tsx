@@ -1,14 +1,25 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ExportedImage from "next-image-export-optimizer";
+import ReservationForm from "./ReservationForm";
+import { ArtWork } from "@/types";
 
-interface ImageOverlayProps {
-  src: string;
-  alt: string;
+interface ImageOverlayProps extends ArtWork {
   onClose: () => void;
 }
 
-const ImageOverlay: React.FC<ImageOverlayProps> = ({ src, alt, onClose }) => {
+const ImageOverlay: React.FC<ImageOverlayProps> = ({
+  image,
+  title,
+  technique,
+  size,
+  year,
+  price,
+  sold,
+  copy,
+  onClose
+}) => {
+  const [showReservation, setShowReservation] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -22,33 +33,88 @@ const ImageOverlay: React.FC<ImageOverlayProps> = ({ src, alt, onClose }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onClose]); 
+  }, [onClose]);
 
   return (
-    // The modal backdrop
+    // The modal backdrop - Lighter background
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-95 cursor-pointer"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-95 p-4 md:p-10 cursor-default overflow-y-auto"
       onClick={onClose}
     >
-      {/* Close button in the top-right corner */}
-      <button
-        className="absolute top-4 right-4 text-white text-3xl z-50"
-        aria-label="Close image view"
-      >
-        &times;
-      </button>
-
-      {/* Image container */}
       <div
-        className="relative w-[90vw] h-[90vh]"
+        className="relative w-full max-w-6xl bg-white shadow-2xl rounded-xl overflow-hidden flex flex-col md:flex-row min-h-[60vh] md:h-[80vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        <ExportedImage
-          src={src}
-          alt={alt}
-          fill
-          style={{ objectFit: "contain" }}
-        />
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-black text-4xl z-50 hover:text-gray-600 transition leading-none"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+
+        {/* Left: Image Section */}
+        <div className="relative w-full md:w-3/5 h-[40vh] md:h-full bg-gray-50">
+          <ExportedImage
+            src={image}
+            alt={title}
+            fill
+            style={{ objectFit: "contain" }}
+            className="p-4"
+          />
+        </div>
+
+        {/* Right: Info Section */}
+        <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col overflow-y-auto">
+          {showReservation ? (
+            <ReservationForm
+              workTitle={title}
+              onClose={() => setShowReservation(false)}
+            />
+          ) : (
+            <>
+
+              {/* Status / Price */}
+              <div className="mb-6 mt-24">
+                {sold ? (
+                  <span className="inline-block bg-black text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    Verkocht
+                  </span>
+                ) : price ? (
+                  <span className="text-xl font-medium text-gray-900">
+                    {price}
+                  </span>
+                ) : null}
+              </div>
+
+              {/* Description */}
+              <div className="prose text-gray-600 mb-8 leading-relaxed">
+                <p className="font-bold">{title}</p>
+                <p>{technique}, {size} ({year})</p>
+                <p className="mt-6">
+                  {copy}
+                </p>
+              </div>
+
+              {/* Action Button */}
+              <div className="mt-auto pt-6 border-t border-gray-100">
+                {!sold && price ? (
+                  <button
+                    onClick={() => setShowReservation(true)}
+                    className="w-full bg-black text-white text-lg font-medium py-4 rounded-full hover:bg-gray-800 transition shadow-lg"
+                  >
+                    Reserveren / Kopen
+                  </button>
+                ) : sold ? (
+                  <p className="text-center text-gray-500 italic">
+                    Dit werk is niet meer beschikbaar.
+                  </p>
+                ) : null}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
