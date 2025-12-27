@@ -24,7 +24,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
 
   return (
     <div
-      className="flex flex-col cursor-pointer group"
+      className="flex flex-col cursor-pointer group focus:outline-none"
       onClick={onClick}
       tabIndex={0}
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onClick()}
