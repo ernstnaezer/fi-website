@@ -1,10 +1,10 @@
 "use client";
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import React from "react";
+import { useEmailService } from "@/hooks/useEmailService";
 
 interface ReservationFormProps {
   workTitle: string;
-  technique?: string; // Nieuw: optionele velden voor de mail
+  technique?: string;
   size?: string;
   year?: number;
   onClose: () => void;
@@ -17,32 +17,12 @@ const ReservationForm: React.FC<ReservationFormProps> = ({
   year,
   onClose
 }) => {
-  const form = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const { formRef, status, sendEmail } = useEmailService();
 
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.current) return;
-
-    setStatus("sending");
-
-    emailjs
-      .sendForm(
-        "service_mvi596h",
-        "template_6dp1l6g",
-        form.current,
-        "ZKCNzXFJ_ChBAyWv5"
-      )
-      .then(
-        () => {
-          setStatus("success");
-          setTimeout(onClose, 4000);
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("error");
-        }
-      );
+  const handleFormSubmit = (e: React.FormEvent) => {
+    sendEmail(e, () => {
+      setTimeout(onClose, 4000);
+    });
   };
 
   if (status === "success") {
@@ -68,8 +48,7 @@ const ReservationForm: React.FC<ReservationFormProps> = ({
         Vul je gegevens in om de <strong>{workTitle}</strong> te reserveren.
       </p>
 
-      <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
-        {/* Verborgen velden voor EmailJS template logica */}
+      <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-4">
         <input type="hidden" name="title" value={workTitle} />
         <input type="hidden" name="isCustom" value="false" />
         <input type="hidden" name="technique" value={technique || ""} />

@@ -1,14 +1,18 @@
 "use client";
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import React from "react";
 import ImageGrid from "@/components/ImageGrid";
 import { ArtWork } from "@/types";
+import { useEmailService } from "@/hooks/useEmailService";
 
 const CustomWork: React.FC = () => {
-  const form = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const { formRef, status, setStatus, sendEmail } = useEmailService();
 
-  // De voorbeelden volgen nu de vernieuwde ArtWork interface
+  const handleFormSubmit = (e: React.FormEvent) => {
+    sendEmail(e, () => {
+      formRef.current?.reset();
+    });
+  };
+
   const examples: ArtWork[] = [
     {
       title: "Ijsvogel",
@@ -40,45 +44,16 @@ const CustomWork: React.FC = () => {
     },
   ];
 
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.current) return;
-
-    setStatus("sending");
-
-    emailjs
-      .sendForm(
-        "service_mvi596h",
-        "template_6dp1l6g",
-        form.current,
-        "ZKCNzXFJ_ChBAyWv5"
-      )
-      .then(
-        () => {
-          setStatus("success");
-          form.current?.reset();
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("error");
-        }
-      );
-  };
-
   return (
     <div className="bg-gray-100 text-black px-6 md:px-20 py-12 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        {/* Titel van de pagina */}
         <div className="mb-16">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900">
             Kunstwerken laten maken
           </h1>
         </div>
 
-        {/* Sectie: Informatie en Formulier naast elkaar op desktop */}
         <div className="flex flex-col lg:flex-row gap-16 lg:items-start mb-24">
-
-          {/* Linker kolom: Informatie met extra witruimte tussen de paragrafen */}
           <div className="w-full lg:w-1/2">
             <div className="flex flex-col gap-6 text-gray-700 leading-relaxed">
               <p className="text-lg md:text-xl">
@@ -86,11 +61,9 @@ const CustomWork: React.FC = () => {
                 maken. Iets wat je aanspreekt en niet direct tussen mijn kunstwerken
                 zit.
               </p>
-
               <p className="text-lg md:text-xl">
                 Stuur een bericht met je wensen en eerste ideeën via het formulier op de website.
               </p>
-
               <p className="text-lg md:text-xl">
                 Een opdracht is vaak een langer proces waar ik graag de tijd neem om
                 je wens te begrijpen. We spreken een prijs en levertijd vooraf af, zodat we
@@ -99,7 +72,6 @@ const CustomWork: React.FC = () => {
             </div>
           </div>
 
-          {/* Rechter kolom: Contactformulier in de stijl van de rest van de site */}
           <div className="w-full lg:w-1/2 bg-white p-8 md:p-10 rounded-2xl shadow-2xl border border-gray-100 animate-fade-in">
             <h2 className="text-2xl font-bold mb-2 text-gray-900">Direct een aanvraag doen</h2>
             <p className="text-gray-500 mb-8 text-sm">Heb je al een idee voor een persoonlijk werk?</p>
@@ -116,8 +88,7 @@ const CustomWork: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-5">
-                {/* Gegevens voor de universele EmailJS template */}
+              <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-5">
                 <input type="hidden" name="title" value="persoonlijk werk" />
                 <input type="hidden" name="isCustom" value="true" />
 
@@ -171,14 +142,13 @@ const CustomWork: React.FC = () => {
           </div>
         </div>
 
-        {/* Portfolio van opdrachten onderaan de pagina over de volle breedte */}
         <div className="pt-20 border-t border-gray-200">
           <h2 className="text-3xl font-bold mb-10 text-center text-gray-900">
             Voorgaande opdrachten
           </h2>
           <ImageGrid
-            projects={examples} //
-            columns={{ base: 2, md: 2, lg: 4, sm: 2 }} //
+            projects={examples}
+            columns={{ base: 2, md: 2, lg: 4, sm: 2 }}
             size="large"
           />
         </div>
