@@ -15,19 +15,19 @@ const CustomWork: React.FC = () => {
 
   const examples: ArtWork[] = [
     {
-      title: "Ijsvogel",
-      technique: "acryl op doek",
-      size: "30 x 40 cm",
-      year: 2021,
-      image: "/assets/custom-work-1.jpeg",
-      copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
+      title: "Kersenbloesem",
+      technique: "olie op doek",
+      size: "70 x 150 cm",
+      year: 2026,
+      image: "/assets/custom-work-3.jpeg",
+      copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
     },
     {
-      title: "Ijsvogel aan de muur",
+      title: "Kersenbloesem in het atelier",
       technique: "Sfeerimpressie",
-      image: "/assets/custom-work-1-wall.png",
-      copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
-    },
+      image: "/assets/custom-work-3-workshop.jpeg",
+      copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
+    },  
     {
       title: "Zonnebloem met vlinders",
       technique: "olie op doek",
@@ -41,6 +41,20 @@ const CustomWork: React.FC = () => {
       technique: "Sfeerimpressie",
       image: "/assets/custom-work-2-wall.jpeg",
       copy: "Dit stralende olieverfschilderij van zonnebloemen en dansende vlinders brengt de ultieme zomerse energie direct in huis. De rijke texturen en warme kleuren vangen het zonlicht, precies zoals bedoeld voor een interieur vol leven en warmte."
+    },
+    {
+      title: "Ijsvogel",
+      technique: "acryl op doek",
+      size: "30 x 40 cm",
+      year: 2021,
+      image: "/assets/custom-work-1.jpeg",
+      copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
+    },
+    {
+      title: "Ijsvogel aan de muur",
+      technique: "Sfeerimpressie",
+      image: "/assets/custom-work-1-wall.png",
+      copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
     },
   ];
 
