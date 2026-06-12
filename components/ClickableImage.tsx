@@ -19,7 +19,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   cardVariant = "dark",
   onClick,
 }) => {
-  const metadata = [technique, size, year ? String(year) : ""].filter(Boolean);
+  const metadata = [technique, size, year ? String(year) : ""].filter((v): v is string => Boolean(v));
   const badge = sold ? "Verkocht" : price ? "Te koop" : undefined;
 
   return (
