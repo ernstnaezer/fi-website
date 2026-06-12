@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import ImageGrid from "@/components/ImageGrid";
 import { ArtWork } from "@/types";
 
@@ -138,16 +139,45 @@ const projects: ArtWork[] = [
 
 ];
 
-console.log(projects);
-
 const Overview: React.FC = () => {
   return (
-    <div className="bg-gray-900 text-white py-10 px-6 flex flex-col items-center">
+    <div className="bg-gray-900 text-white px-6 md:px-12 py-14 md:py-20">    
+      <div className="max-w-6xl mx-auto">
+
+        <div className="w-full mb-10 p-6 md:p-8 rounded-2xl bg-white/[0.06] border border-white/10 shadow-lg shadow-black/20 md:mb-20">
+        <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-gray-300">Nieuw</p>
+            <h2 className="text-3xl md:text-4xl font-bold mt-1">Schilderij voor je kinderkamer 🧸</h2>
+            <p className="text-gray-200 mt-2 max-w-2xl">
+              Elke kinderkamer verdient een mooi schilderij. Ik maak deze op aanvraag, persoonlijk en afgestemd op de sfeer en kleuren van de kamer. Perfect als origineel cadeau of om je eigen kinderkamer te verrijken. Voor een vaste prijs van 75 euro per stuk.
+            </p>
+          </div>
+          <Link
+            href="/kinderkamer"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+          >
+            Naar kinderkamer
+          </Link>
+        </div>
+      </div>
+
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Beschikbare kunstwerken</h2>
+            <p className="mt-3 text-gray-300 text-lg">
+              Originele werken die direct te koop zijn. Klik op een werk voor formaat, prijs en reservering.
+            </p>
+          </div>
+          <p className="text-sm uppercase tracking-[0.2em] text-gray-400">Losse werken</p>
+        </div>
+
       <ImageGrid
         projects={projects}
         columns={{ base: 2, md: 3, lg: 3, sm: 2 }}
         size="large"
       />
+      </div>
     </div>
   );
 };

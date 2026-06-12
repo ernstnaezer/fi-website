@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { displayFont } from "@/utils/fonts";
 import ExportedImage from "next-image-export-optimizer";
 
@@ -37,24 +38,6 @@ const Hero: React.FC = () => {
           </h1>
         </div>
 
-        {/* Button - Moved up by increasing margin-bottom */}
-        <div className="flex justify-center mb-[30vh] md:mb-[15vh]">
-          <button
-            aria-label="Scroll to projects"
-            onClick={() => {
-              const projectsSection = document.getElementById("projects");
-              if (projectsSection) {
-                projectsSection.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-            }}
-            className="absolute px-8 md:px-16 py-3 md:py-4 bg-white text-black text-lg font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
-          >
-            Ontdek
-          </button>
-        </div>
       </div>
 
       {/* Scoped CSS */}

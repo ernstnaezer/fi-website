@@ -42,24 +42,6 @@ const ContactPage: React.FC = () => {
             combineren.
           </p>
 
-          {/* Contact Information */}
-          <div className="mt-10">
-            <div className="flex flex-col space-y-2">
-              <div>
-                <h3 className="text-lg font-bold mb-2">Social Media</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a
-                      href="http://instagram.com/finaezerart"
-                      className="text-red-500 underline"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

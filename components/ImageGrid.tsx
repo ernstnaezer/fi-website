@@ -16,6 +16,7 @@ interface ImageGridProps {
   };
   size?: "small" | "medium" | "large";
   gap?: number;
+  cardVariant?: "dark" | "light";
 }
 
 const ImageGrid: React.FC<ImageGridProps> = ({
@@ -23,6 +24,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
   columns,
   size = "medium",
   gap = 1.5,
+  cardVariant = "dark",
 }) => {
   const [selectedImage, setSelectedImage] = useState<ArtWork | null>(null);
   const uniqueClassName = `grid-${useId().replace(/:/g, "")}`;
@@ -40,14 +42,14 @@ const ImageGrid: React.FC<ImageGridProps> = ({
 
   const sizeStyles: Record<typeof size, string> = {
     small: "80%",
-    medium: "90%",
-    large: "100%",
+    medium: "72rem",
+    large: "72rem",
   };
 
   return (
     <>
       <div
-        className="w-full mx-auto px-4 py-6"
+        className="w-full mx-auto"
         style={{ maxWidth: sizeStyles[size] }}
       >
         <div className={`grid ${uniqueClassName}`} style={{ gap: `${gap}rem` }}>
@@ -55,6 +57,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
             <ClickableImage
               key={index}
               {...item}
+              cardVariant={cardVariant}
               onClick={() => setSelectedImage(item)}
             />
           ))}

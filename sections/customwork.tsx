@@ -1,8 +1,13 @@
 "use client";
 import React from "react";
-import ImageGrid from "@/components/ImageGrid";
+import PairedGalleryCard from "@/components/PairedGalleryCard";
 import { ArtWork } from "@/types";
 import { useEmailService } from "@/hooks/useEmailService";
+
+interface PairedArtWork {
+  main: ArtWork;
+  impression: ArtWork;
+}
 
 const CustomWork: React.FC = () => {
   const { formRef, status, setStatus, sendEmail } = useEmailService();
@@ -13,48 +18,54 @@ const CustomWork: React.FC = () => {
     });
   };
 
-  const examples: ArtWork[] = [
+  const examples: PairedArtWork[] = [
     {
-      title: "Kersenbloesem",
-      technique: "olie op doek",
-      size: "70 x 150 cm",
-      year: 2026,
-      image: "/assets/custom-work-3.jpeg",
-      copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
+      main: {
+        title: "Kersenbloesem",
+        technique: "olie op doek",
+        size: "70 x 150 cm",
+        year: 2026,
+        image: "/assets/custom-work-3.jpeg",
+        copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
+      },
+      impression: {
+        title: "Kersenbloesem in het atelier",
+        technique: "Sfeerimpressie",
+        image: "/assets/custom-work-3-workshop.jpeg",
+        copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
+      }
     },
     {
-      title: "Kersenbloesem in het atelier",
-      technique: "Sfeerimpressie",
-      image: "/assets/custom-work-3-workshop.jpeg",
-      copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
-    },  
-    {
-      title: "Zonnebloem met vlinders",
-      technique: "olie op doek",
-      size: "50 x 70 cm",
-      year: 2024,
-      image: "/assets/custom-work-2.jpeg",
-      copy: "Dit stralende olieverfschilderij van zonnebloemen en dansende vlinders brengt de ultieme zomerse energie direct in huis. De rijke texturen en warme kleuren vangen het zonlicht, precies zoals bedoeld voor een interieur vol leven en warmte."
+      main: {
+        title: "Zonnebloem met vlinders",
+        technique: "olie op doek",
+        size: "50 x 70 cm",
+        year: 2024,
+        image: "/assets/custom-work-2.jpeg",
+        copy: "Dit stralende olieverfschilderij van zonnebloemen en dansende vlinders brengt de ultieme zomerse energie direct in huis. De rijke texturen en warme kleuren vangen het zonlicht, precies zoals bedoeld voor een interieur vol leven en warmte."
+      },
+      impression: {
+        title: "Zonnebloem met vlinders aan de muur",
+        technique: "Sfeerimpressie",
+        image: "/assets/custom-work-2-wall.jpeg",
+        copy: "Dit stralende olieverfschilderij van zonnebloemen en dansende vlinders brengt de ultieme zomerse energie direct in huis. De rijke texturen en warme kleuren vangen het zonlicht, precies zoals bedoeld voor een interieur vol leven en warmte."
+      }
     },
     {
-      title: "Zonnebloem met vlinders aan de muur",
-      technique: "Sfeerimpressie",
-      image: "/assets/custom-work-2-wall.jpeg",
-      copy: "Dit stralende olieverfschilderij van zonnebloemen en dansende vlinders brengt de ultieme zomerse energie direct in huis. De rijke texturen en warme kleuren vangen het zonlicht, precies zoals bedoeld voor een interieur vol leven en warmte."
-    },
-    {
-      title: "Ijsvogel",
-      technique: "acryl op doek",
-      size: "30 x 40 cm",
-      year: 2021,
-      image: "/assets/custom-work-1.jpeg",
-      copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
-    },
-    {
-      title: "Ijsvogel aan de muur",
-      technique: "Sfeerimpressie",
-      image: "/assets/custom-work-1-wall.png",
-      copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
+      main: {
+        title: "Ijsvogel",
+        technique: "acryl op doek",
+        size: "30 x 40 cm",
+        year: 2021,
+        image: "/assets/custom-work-1.jpeg",
+        copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
+      },
+      impression: {
+        title: "Ijsvogel aan de muur",
+        technique: "Sfeerimpressie",
+        image: "/assets/custom-work-1-wall.png",
+        copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
+      }
     },
   ];
 
@@ -156,15 +167,29 @@ const CustomWork: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-20 border-t border-gray-200">
-          <h2 className="text-3xl font-bold mb-10 text-center text-gray-900">
-            Voorgaande opdrachten
-          </h2>
-          <ImageGrid
-            projects={examples}
-            columns={{ base: 2, md: 2, lg: 4, sm: 2 }}
-            size="large"
-          />
+        <div className="mt-4 pt-14 md:pt-20 border-t border-gray-300 mb-20">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
+                Voorgaande opdrachten
+              </h2>
+              <p className="mt-3 text-gray-600 text-lg max-w-3xl">
+                Een selectie van eerder gemaakte werken op aanvraag. Elk werk begint met een persoonlijk idee en wordt vooraf afgestemd op formaat, stijl en planning.
+              </p>
+            </div>
+            <p className="text-sm uppercase tracking-[0.2em] text-gray-500">Opdrachtwerk</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {examples.map((example) => (
+              <PairedGalleryCard
+                key={example.main.title}
+                main={example.main}
+                impression={example.impression}
+                variant="light"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
