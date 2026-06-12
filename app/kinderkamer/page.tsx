@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ExportedImage from "next-image-export-optimizer";
 import { displayFont } from "@/utils/fonts";
 import GalleryCard from "@/components/GalleryCard";
 import KinderkamerContactSection from "@/components/KinderkamerContactSection";
