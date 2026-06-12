@@ -1,7 +1,41 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { displayFont } from "@/utils/fonts";
 import GalleryCard from "@/components/GalleryCard";
 import KinderkamerContactSection from "@/components/KinderkamerContactSection";
+
+export const metadata: Metadata = {
+  title: "Kinderkamer schilderijen — Fi Naezer",
+  description:
+    "Op aanvraag gemaakte schilderijen voor kinderkamers, afgestemd op sfeer en kleuren. Vaste prijs: 75 euro per stuk.",
+  alternates: {
+    canonical: "/kinderkamer",
+  },
+  openGraph: {
+    title: "Kinderkamer schilderijen — Fi Naezer",
+    description:
+      "Op aanvraag gemaakte schilderijen voor kinderkamers, afgestemd op sfeer en kleuren. Vaste prijs: 75 euro per stuk.",
+    url: "/kinderkamer",
+    siteName: "Fi Naezer",
+    locale: "nl_NL",
+    type: "website",
+    images: [
+      {
+        url: "/og-image-kinderkamer.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Kinderkamer schilderijen door Fi Naezer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kinderkamer schilderijen — Fi Naezer",
+    description:
+      "Op aanvraag gemaakte schilderijen voor kinderkamers, afgestemd op sfeer en kleuren. Vaste prijs: 75 euro per stuk.",
+    images: ["/og-image-kinderkamer.jpg"],
+  },
+};
 
 interface KinderkamerItem {
   title: string;
