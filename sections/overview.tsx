@@ -8,7 +8,7 @@ const projects: ArtWork[] = [
     technique: "olie op doek",
     size: "50 x 70 cm",
     year: 2026,
-    image: "/assets/IMG_4960.png",
+    image: "/assets/IMG_4960.jpeg",
     price: "€ 275,-",
     copy: "Onder een sluier van bloesem en licht ontvouwt zich een verstilde tuin vol kleur en beweging. De speelse penseelstreken en zachte overgangen tussen turquoise, groen en violet vangen een moment van rust waarin natuur en verbeelding samensmelten. Dit werk nodigt uit om even stil te staan en weg te dromen tussen de irissen en kronkelende takken."
   },
@@ -33,7 +33,7 @@ const projects: ArtWork[] = [
     technique: "olie op doek",
     size: "40 x 50 cm",
     year: 2024,
-    image: "/assets/IMG_1249.png",
+    image: "/assets/IMG_1249.jpeg",
     copy: "Een Engelse theeroos in zacht lichtroze straalt stille elegantie uit. Met verfijnde penseelstreken en subtiel licht wordt haar delicate schoonheid vastgelegd, een tijdloos symbool van sereniteit en zachtheid.",
     price: "€ 275,-",
   },
@@ -42,7 +42,7 @@ const projects: ArtWork[] = [
     technique: "olie op doek",
     size: "50 x 60 cm",
     year: 2024,
-    image: "/assets/IMG_2488.png",
+    image: "/assets/IMG_2488.jpeg",
     price: "€ 275,-",
     copy: "Een weelderige bos rozen en hortensia’s in diepe wijnrode en paarse tinten, omlijst door diepgroene bladeren. Het samenspel van kleur en textuur geeft het werk een rijke, warme uitstraling vol elegantie en diepte."
   },
@@ -51,7 +51,7 @@ const projects: ArtWork[] = [
     technique: "olie op doek",
     size: "50 x 70 cm",
     year: 2024,
-    image: "/assets/IMG_1707.png",
+    image: "/assets/IMG_1707.jpeg",
     price: "€ 275,-",
     copy: "Een zachtroze klimroos ontvouwt zich sierlijk langs haar takken. De verfijnde tinten en vloeiende vormen vangen een gevoel van groei en romantiek, waarin natuurlijke elegantie en tedere kracht samenkomen."
   },
@@ -78,7 +78,7 @@ const projects: ArtWork[] = [
     technique: "pastelkrijt op papier",
     size: "20 x 30 cm",
     year: 2024,
-    image: "/assets/IMG_2185.png",
+    image: "/assets/IMG_2185.jpeg",
     sold: true,
     copy: "Verkocht op de kunstmarkt in Bergen 2025"
   },
@@ -87,7 +87,7 @@ const projects: ArtWork[] = [
     technique: "pastelkrijt op papier",
     size: "20 x 30 cm",
     year: 2025,
-    image: "/assets/IMG_2684.png",
+    image: "/assets/IMG_2684.jpeg",
     price: "€ 50,-",
     copy: "Een verstilde tuin met witte irissen, omlijst door strak geknipte groene hagen. In de achtergrond zorgen lavendeltonen voor diepte en zachtheid, terwijl het geheel een sfeer van rust, orde en natuurlijke elegantie ademt."
   },
@@ -96,7 +96,7 @@ const projects: ArtWork[] = [
     technique: "pastelkrijt op papier",
     size: "20 x 30 cm",
     year: 2025,
-    image: "/assets/IMG_3432.png",
+    image: "/assets/IMG_3432.jpeg",
     sold: true,
     copy: "Verkocht op de kunstmarkt in Bergen 2025"
   },
@@ -105,7 +105,7 @@ const projects: ArtWork[] = [
     technique: "pastelkrijt op papier",
     size: "20 x 30 cm",
     year: 2025,
-    image: "/assets/IMG_3441.png",
+    image: "/assets/IMG_3441.jpeg",
     sold: true,
     copy: "Verkocht op de kunstmarkt in Bergen 2025"
   },
@@ -114,7 +114,7 @@ const projects: ArtWork[] = [
     technique: "pastelkrijt op papier",
     size: "20 x 30 cm",
     year: 2025,
-    image: "/assets/IMG_3758.png",
+    image: "/assets/IMG_3758.jpeg",
     price: "€ 50,-",
     copy: "Deze droomachtige pasteltekeningen vangen de stralende energie van reusachtige zonnebloemen uit de zomertuin. Met zachte kleurvlakken en subtiele texturen brengt dit kunstwerk de warme gloed en de pure schoonheid van de natuur bij u binnen."
   },
@@ -123,7 +123,7 @@ const projects: ArtWork[] = [
     technique: "pastelkrijt op papier",
     size: "20 x 30 cm",
     year: 2024,
-    image: "/assets/IMG_1681.png",
+    image: "/assets/IMG_1681.jpeg",
     price: "€ 50,-",
     copy: "Dit sfeervolle pastelstilleven met gedroogde bieslook en alliums in drie vazen vormt een verstilde herinnering aan een prachtig voorjaar. De zachte texturen vangen de tijdloze schoonheid van de natuur en brengen blijvende warmte."
   },
@@ -132,7 +132,7 @@ const projects: ArtWork[] = [
     technique: "pastelkrijt op papier",
     size: "20 x 30 cm",
     year: 2024,
-    image: "/assets/IMG_2210.png",
+    image: "/assets/IMG_2210.jpeg",
     sold: true,
     copy: "Verkocht op de kunstmarkt in Bergen 2025"
   },

@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         {/* Using next/image for the background */}
         <div className="absolute inset-0 w-full h-full animate-zoom">
           <ExportedImage
-            src="/assets/detail-iris.png"
+            src="/assets/detail-iris.jpeg"
             alt="Background detail"
             fill
             style={{ objectFit: "cover" }}

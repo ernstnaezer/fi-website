@@ -1,5 +1,5 @@
 import React from "react";
-import FiImage from "@/public/assets/Fi.png";
+import FiImage from "@/public/assets/Fi.jpeg";
 import ExportedImage from "next-image-export-optimizer";
 
 const ContactPage: React.FC = () => {

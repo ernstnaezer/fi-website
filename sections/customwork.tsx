@@ -63,7 +63,7 @@ const CustomWork: React.FC = () => {
       impression: {
         title: "Ijsvogel aan de muur",
         technique: "Sfeerimpressie",
-        image: "/assets/custom-work-1-wall.png",
+        image: "/assets/custom-work-1-wall.jpeg",
         copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
       }
     },
