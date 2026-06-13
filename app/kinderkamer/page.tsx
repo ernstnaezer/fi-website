@@ -82,7 +82,7 @@ export default function KinderkamerPage() {
             Schilderijen voor kinderkamers
           </h1>
           <p className="mt-6 text-lg md:text-2xl max-w-3xl text-[#F5F2ED]/90 leading-relaxed">
-            Elk werk wordt op aanvraag gemaakt, afgestemd op sfeer en kleuren van de kamer. Vaste prijs: 75 euro per stuk.
+            Elke kinderkamer verdient een mooi schilderij. Ik maak deze op aanvraag, persoonlijk en afgestemd op de sfeer en kleuren van de kamer. Perfect als origineel cadeau of om je eigen kinderkamer te verrijken. Voor een vaste prijs van 75 euro per stuk.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -90,10 +90,11 @@ export default function KinderkamerPage() {
               href="#aanvraag"
               className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition"
             >
-              Start je aanvraag
+              Start je aanvraag of geef een cadeaubon
             </a>
           </div>
         </div>
+        
       </section>
 
       <section className="bg-gray-900 text-white px-6 md:px-12 py-14 md:py-20">
