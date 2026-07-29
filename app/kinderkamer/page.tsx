@@ -39,7 +39,6 @@ export const metadata: Metadata = {
 
 interface KinderkamerItem {
   title: string;
-  size: string;
   date: string;
   image: string;
 }
@@ -47,22 +46,24 @@ interface KinderkamerItem {
 const showcaseItems: KinderkamerItem[] = [
   {
     title: "Vuurpaard voor Sam",
-    size: "40 x 40 cm",
-    date: "Juni 2026",
+    date: "Juli 2026",
     image: "/assets/custom-kinderkamer-1.jpeg",
   },
   {
-    title: "Poes en vis voor Emiel",
-    size: "50 x 50 cm",
-    date: "Mei 2023",
-    image: "/assets/custom-kinderkamer-2.jpeg",
-  },
-  {
-    title: "Pikachu voor Emiel",
-    size: "20 x 20 cm",
-    date: "Augustus 2024",
+    title: "Koalabeer voor Laurie",
+    date: "Juli 2026",
     image: "/assets/custom-kinderkamer-3.jpeg",
   },
+  {
+    title: "Aapje voor Rafi",
+    date: "Juli 2026",
+    image: "/assets/custom-kinderkamer-4.jpeg",
+  },
+  {
+    title: "Poes en vis voor Emiel",
+    date: "Mei 2023",
+    image: "/assets/custom-kinderkamer-2.jpeg",
+  }
 ];
 
 
@@ -82,7 +83,7 @@ export default function KinderkamerPage() {
             Schilderijen voor kinderkamers
           </h1>
           <p className="mt-6 text-lg md:text-2xl max-w-3xl text-[#F5F2ED]/90 leading-relaxed">
-            Elke kinderkamer verdient een mooi schilderij. Ik maak deze op aanvraag, persoonlijk en afgestemd op de sfeer en kleuren van de kamer. Perfect als origineel cadeau of om je eigen kinderkamer te verrijken. Voor een vaste prijs van 75 euro per stuk.
+            Elke kinderkamer verdient een mooi schilderij. Ik maak deze op aanvraag, persoonlijk en afgestemd op de sfeer en kleuren van de kamer. Perfect als origineel cadeau of om je eigen kinderkamer te verrijken. Het formaat is 40x40 cm, voor een vaste prijs van 75 euro per stuk.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -113,7 +114,7 @@ export default function KinderkamerPage() {
                 key={`${item.title}-${item.date}`}
                 title={item.title}
                 image={item.image}
-                metadata={[`Formaat: ${item.size}`, `Datum: ${item.date}`]}
+                metadata={[`Datum: ${item.date}`]}
                 imageAspect="aspect-[9/16]"
               />
             ))}
