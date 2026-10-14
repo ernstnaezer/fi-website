@@ -1,110 +1,192 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ExportedImage from "next-image-export-optimizer";
 import { useEmailService } from "@/hooks/useEmailService";
 
-type Mode = "cadeaubon" | "commissie";
+type Mode = "cadeaubon" | "aanvraag";
 
 export default function KinderkamerContactSection() {
-  const [mode, setMode] = useState<Mode>("cadeaubon");
+  const [mode, setMode] = useState<Mode>("aanvraag");
+  const [submittedMode, setSubmittedMode] = useState<Mode>("aanvraag");
   const { formRef, status, setStatus, sendEmail } = useEmailService();
 
+  useEffect(() => {
+    const syncModeFromHash = () => {
+      const hash = window.location.hash;
+      if (hash === "#cadeaubon" || hash === "#aanvraag") {
+        setMode(hash === "#cadeaubon" ? "cadeaubon" : "aanvraag");
+        setStatus((current) => (current === "sending" ? current : "idle"));
+      }
+    };
+
+    syncModeFromHash();
+    window.addEventListener("hashchange", syncModeFromHash);
+    return () => window.removeEventListener("hashchange", syncModeFromHash);
+  }, [setStatus]);
+
+  const selectMode = (nextMode: Mode) => {
+    setMode(nextMode);
+    setStatus((current) => (current === "sending" ? current : "idle"));
+    window.history.replaceState(window.history.state, "", `#${nextMode}`);
+  };
+
   const handleFormSubmit = (e: React.FormEvent) => {
+    setSubmittedMode(mode);
     sendEmail(e, () => formRef.current?.reset());
   };
 
   const isCadeaubon = mode === "cadeaubon";
 
   return (
-    <section className="bg-[#F5F2ED] px-6 md:px-12 py-16 md:py-24">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-10">
-          <p className="uppercase tracking-[0.25em] text-xs text-gray-500 mb-2">Bestellen</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Wat wil je doen?</h2>
+    <section
+      id="aanvraag"
+      aria-labelledby="kinderkamer-contact-heading"
+      className="section-space scroll-mt-28 border-t border-line bg-salt"
+    >
+      <div id="cadeaubon" className="site-container scroll-mt-28">
+        <div className="mb-8 max-w-2xl">
+          <p className="eyebrow">Voor je eigen kind, of om te geven</p>
+          <h2 id="kinderkamer-contact-heading" className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
+            Wat mag ik voor je maken?
+          </h2>
+          <p className="mt-4 leading-relaxed text-muted">
+            Vertel me je idee voor een schilderij. Of geef een cadeaubon, zodat
+            de ontvanger zelf het onderwerp en de kleuren kan kiezen.
+          </p>
         </div>
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex bg-white rounded-2xl p-2 shadow-lg border border-gray-200 gap-2">
-            <TabButton
-              active={isCadeaubon}
-              onClick={() => {
-                setMode("cadeaubon");
-                setStatus("idle");
-              }}
+        <fieldset className="mb-8" disabled={status === "sending"}>
+          <legend className="sr-only">Kies een schilderij of een cadeaubon</legend>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label
+              className={`flex cursor-pointer items-start gap-3 border p-5 transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-sage ${
+                !isCadeaubon ? "border-sage bg-pearl" : "border-line hover:border-sage"
+              }`}
             >
-              Cadeaubon kopen
-            </TabButton>
-            <TabButton
-              active={!isCadeaubon}
-              onClick={() => {
-                setMode("commissie");
-                setStatus("idle");
-              }}
+              <input
+                type="radio"
+                name="kinderkamer-keuze"
+                value="aanvraag"
+                checked={!isCadeaubon}
+                onChange={() => selectMode("aanvraag")}
+                className="mt-1 h-4 w-4 shrink-0 accent-sage"
+                aria-controls="kinderkamer-form-panel"
+              />
+              <span>
+                <span className="block font-medium">Een schilderij laten maken</span>
+                <span className="mt-1 block text-sm leading-relaxed text-muted">
+                  Voor jouw kind · 40 × 40 cm · €75
+                </span>
+              </span>
+            </label>
+            <label
+              className={`flex cursor-pointer items-start gap-3 border p-5 transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-sage ${
+                isCadeaubon ? "border-sage bg-pearl" : "border-line hover:border-sage"
+              }`}
             >
-              Schilderij op maat
-            </TabButton>
+              <input
+                type="radio"
+                name="kinderkamer-keuze"
+                value="cadeaubon"
+                checked={isCadeaubon}
+                onChange={() => selectMode("cadeaubon")}
+                className="mt-1 h-4 w-4 shrink-0 accent-sage"
+                aria-controls="kinderkamer-form-panel"
+              />
+              <span>
+                <span className="block font-medium">Een cadeaubon geven</span>
+                <span className="mt-1 block text-sm leading-relaxed text-muted">
+                  Voor een persoonlijk kinderkamerschilderij · €75
+                </span>
+              </span>
+            </label>
           </div>
-        </div>
+        </fieldset>
 
-        {/* Content panel */}
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Left: visual / context */}
-            <div className={`p-8 md:p-10 lg:p-12 flex items-center justify-center ${isCadeaubon ? "bg-[#EBDCC7]" : "bg-gray-900 text-white"}`}>
-              {isCadeaubon ? (
-                <div className="w-full max-w-md">
-                  <ExportedImage
-                    src="/assets/cadeaubon-sample.png"
-                    alt="Voorbeeld van de cadeaubon"
-                    width={1536}
-                    height={1024}
-                    className="w-full h-auto rounded-xl shadow-2xl"
-                  />
-                </div>
-              ) : (
-                <div className="max-w-sm">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Een schilderij dat past bij de kamer.</h3>
-                  <p className="text-gray-300 leading-relaxed mb-6">
-                    Vertel me over onderwerp, kleuren en sfeer — ik schilder iets unieks dat aansluit bij jouw kinderkamer.
+        <div id="kinderkamer-form-panel" className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="py-3 lg:py-8">
+            {isCadeaubon ? (
+              <div className="max-w-lg">
+                <ExportedImage
+                  src="/assets/cadeaubon-sample.png"
+                  alt="Voorbeeld van de digitale cadeaubon voor een kinderkamerschilderij"
+                  width={1536}
+                  height={1024}
+                  sizes="(max-width: 1024px) 90vw, 42vw"
+                  className="h-auto w-full object-contain"
+                />
+                <h3 className="mt-7 text-2xl sm:text-3xl">Zo geef je een schilderij cadeau.</h3>
+                <ol className="mt-4 list-decimal space-y-3 pl-5 leading-relaxed text-muted">
+                  <li>Vraag hieronder een cadeaubon van €75 aan.</li>
+                  <li>Ik stuur je een betaalverzoek per e-mail.</li>
+                  <li>Na betaling ontvang je de digitale cadeaubon per e-mail.</li>
+                </ol>
+                <p className="mt-5 text-sm leading-relaxed text-muted">
+                  De bon is voor een schilderij van 40 × 40 cm, dat ik speciaal
+                  voor de ontvanger maak.
+                </p>
+              </div>
+            ) : (
+              <div className="max-w-md">
+                <p className="eyebrow">Jouw idee, mijn penseel</p>
+                <h3 className="mt-4 text-3xl sm:text-4xl">Iets dat echt bij de kamer past.</h3>
+                <ol className="mt-7 space-y-6">
+                  <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">1</span><div><h4 className="font-display text-xl">Deel je idee</h4><p className="mt-2 text-sm leading-relaxed text-muted">Vertel me wat je mooi vindt. In een gesprek van 30 minuten bespreken we je idee.</p></div></li>
+                  <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">2</span><div><h4 className="font-display text-xl">Na 2 tot 3 weken in huis</h4><p className="mt-2 text-sm leading-relaxed text-muted">Je schilderij wordt gratis bij je thuisbezorgd. Je betaalt pas bij bezorging.</p></div></li>
+                </ol>
+                <dl className="mt-7 divide-y divide-line border-y border-line text-sm">
+                  <div className="flex justify-between gap-4 py-4">
+                    <dt className="text-muted">Formaat</dt>
+                    <dd>40 × 40 cm</dd>
+                  </div>
+                  <div className="flex justify-between gap-4 py-4">
+                    <dt className="text-muted">Vaste prijs</dt>
+                    <dd>€75</dd>
+                  </div>
+                  <div className="flex justify-between gap-4 py-4">
+                    <dt className="text-muted">Gemaakt voor</dt>
+                    <dd>Jouw kind</dd>
+                  </div>
+                </dl>
+              </div>
+            )}
+          </div>
+
+          <div className="border border-line bg-pearl p-6 sm:p-8 lg:p-10">
+            <div aria-live="polite" aria-atomic="true">
+              {status === "success" && (
+                <div className="form-status py-8">
+                  <h3 className="text-3xl">Bedankt, je bericht is verstuurd.</h3>
+                  <p className="mt-4 leading-relaxed text-muted">
+                    {submittedMode === "cadeaubon"
+                      ? "Ik stuur je een betaalverzoek per e-mail. Na betaling ontvang je de digitale cadeaubon per e-mail."
+                      : "Ik neem per e-mail contact met je op om een gesprek van 30 minuten te plannen."}
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-200">
-                    <li className="flex gap-2"><span>✓</span> Op aanvraag geschilderd</li>
-                    <li className="flex gap-2"><span>✓</span> Afgestemd op jouw wensen</li>
-                    <li className="flex gap-2"><span>✓</span> Vaste prijs: 75 euro</li>
-                  </ul>
+                  <button type="button" onClick={() => setStatus("idle")} className="text-link mt-6">
+                    Nog een aanvraag doen
+                  </button>
                 </div>
               )}
             </div>
 
-            {/* Right: form */}
-            <div className="p-8 md:p-10 lg:p-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                {isCadeaubon ? "Bestel een cadeaubon" : "Aanvraag voor maatwerk"}
-              </h3>
-              <p className="text-gray-500 text-sm mb-6">
-                {isCadeaubon
-                  ? "Vul je gegevens in, je ontvangt dan van mij een betaalverzoek per e-mail. Na betaling ontvang je een digitale cadeaubon per e-mail."
-                  : "Vul je gegevens in en ik neem contact op over de details."}
-              </p>
+            {status !== "success" && (
+              <>
+                <h3 id="kinderkamer-form-heading" className="text-2xl sm:text-3xl">
+                  {isCadeaubon ? "Vraag een cadeaubon aan" : "Vertel me je idee"}
+                </h3>
+                <p className="mb-6 mt-3 text-sm leading-relaxed text-muted">
+                  {isCadeaubon
+                    ? "Laat je naam en e-mailadres achter. Je krijgt eerst een betaalverzoek van mij per e-mail."
+                    : "Vul je gegevens en wensen in. Ik neem per e-mail contact met je op om een gesprek van 30 minuten te plannen."}
+                </p>
 
-              {status === "success" ? (
-                <div className="flex flex-col items-center justify-center py-8 text-center">
-                  <h4 className="text-2xl font-bold text-black mb-3">Verzonden!</h4>
-                  <p className="text-gray-700">
-                    {isCadeaubon
-                      ? "Bedankt! Je ontvangt binnenkort een betaalverzoek per e-mail. Na betaling ontvang je de digitale cadeaubon."
-                      : "Bedankt voor je aanvraag! Ik neem binnenkort contact op."}
-                  </p>
-                  <button
-                    onClick={() => setStatus("idle")}
-                    className="mt-6 text-gray-500 underline hover:text-black transition"
-                  >
-                    Nog een bericht sturen
-                  </button>
-                </div>
-              ) : (
-                <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+                <form
+                  ref={formRef}
+                  onSubmit={handleFormSubmit}
+                  aria-labelledby="kinderkamer-form-heading"
+                  aria-busy={status === "sending"}
+                  className="flex flex-col gap-5"
+                >
                   <input
                     type="hidden"
                     name="title"
@@ -112,64 +194,59 @@ export default function KinderkamerContactSection() {
                   />
                   <input type="hidden" name="isCustom" value="true" />
 
-                  <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-gray-700 ml-1">Naam</label>
-                    <input
-                      name="name"
-                      type="text"
-                      required
-                      placeholder="Je naam"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:bg-white outline-none transition"
-                    />
+                  <div>
+                    <label htmlFor="kinderkamer-name" className="form-label">Naam</label>
+                    <input id="kinderkamer-name" name="name" type="text" autoComplete="name" required className="field" />
                   </div>
 
-                  <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-gray-700 ml-1">E-mailadres</label>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="naam@voorbeeld.nl"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:bg-white outline-none transition"
-                    />
+                  <div>
+                    <label htmlFor="kinderkamer-email" className="form-label">E-mailadres</label>
+                    <input id="kinderkamer-email" name="email" type="email" autoComplete="email" required className="field" />
                   </div>
 
-                  <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-gray-700 ml-1">
-                      {isCadeaubon ? "Bericht (optioneel)" : "Wensen voor het schilderij"}
+                  <div>
+                    <label htmlFor="kinderkamer-message" className="form-label">
+                      {isCadeaubon ? "Bericht (niet verplicht)" : "Je wensen voor het schilderij"}
                     </label>
+                    <p id="kinderkamer-message-help" className="mb-2 text-sm leading-relaxed text-muted">
+                      {isCadeaubon
+                        ? "Heb je een vraag of wil je iets meegeven? Schrijf het gerust op."
+                        : "Denk aan een lievelingsdier, de kleuren van de kamer of een sfeer die je mooi vindt."}
+                    </p>
                     <textarea
+                      id="kinderkamer-message"
                       name="message"
                       required={!isCadeaubon}
-                      placeholder={
-                        isCadeaubon
-                          ? "Heb je nog een vraag of opmerking? Laat het hier weten."
-                          : "Beschrijf het onderwerp en kleurenpallet van de kinderkamer (bijv. dieren, bloemen, kleuren)..."
-                      }
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:bg-white outline-none h-32 resize-none transition"
+                      aria-describedby="kinderkamer-message-help"
+                      rows={5}
+                      className="field min-h-32 resize-y"
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="w-full bg-black text-white py-4 mt-1 rounded-full font-bold hover:bg-gray-800 transition shadow-lg disabled:opacity-50"
-                  >
+                  <p className="text-sm text-muted">
+                    {isCadeaubon ? "Naam en e-mailadres zijn verplicht." : "Alle velden zijn verplicht."}
+                  </p>
+                  <button type="submit" disabled={status === "sending"} className="button w-full disabled:cursor-wait disabled:opacity-60">
                     {status === "sending"
-                      ? "Bezig met verzenden..."
+                      ? "Je bericht wordt verstuurd…"
                       : isCadeaubon
-                      ? "Cadeaubon bestellen"
-                      : "Aanvraag versturen"}
+                        ? "Cadeaubon aanvragen · €75"
+                        : "Aanvraag versturen"}
                   </button>
+                  <p role="status" className="sr-only">
+                    {status === "sending" ? "Je bericht wordt verstuurd." : ""}
+                  </p>
 
                   {status === "error" && (
-                    <p className="text-red-500 text-sm text-center mt-2">
-                      Fout bij verzenden. Mail a.u.b. naar info@finaezer.nl
+                    <p role="alert" className="form-status text-sm leading-relaxed text-clay">
+                      Je bericht kon niet worden verstuurd. Probeer het opnieuw,
+                      of mail me op{" "}
+                      <a href="mailto:info@finaezer.nl" className="text-link">info@finaezer.nl</a>.
                     </p>
                   )}
                 </form>
-              )}
-            </div>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -177,25 +254,3 @@ export default function KinderkamerContactSection() {
   );
 }
 
-function TabButton({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`px-6 md:px-20 py-4 rounded-xl text-base md:text-lg font-bold transition whitespace-nowrap ${
-        active
-          ? "bg-black text-white shadow-md"
-          : "text-gray-500 hover:text-black hover:bg-gray-50"
-      }`}
-    >
-      {children}
-    </button>
-  );
-}

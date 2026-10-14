@@ -5,7 +5,6 @@ import GalleryCard from "./GalleryCard";
 
 interface ClickableImageProps extends ArtWork {
   onClick: () => void;
-  cardVariant?: "dark" | "light";
 }
 
 const ClickableImage: React.FC<ClickableImageProps> = ({
@@ -15,12 +14,10 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   title,
   size,
   technique,
-  year,
-  cardVariant = "dark",
   onClick,
 }) => {
-  const metadata = [technique, size, year ? String(year) : ""].filter((v): v is string => Boolean(v));
-  const badge = sold ? "Verkocht" : price ? "Te koop" : undefined;
+  const metadata = [size, technique, price].filter((value): value is string => Boolean(value));
+  const badge = sold ? "Verkocht" : undefined;
 
   return (
     <GalleryCard
@@ -28,8 +25,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
       image={image}
       metadata={metadata}
       badge={badge}
-      imageAspect="aspect-[9/16]"
-      variant={cardVariant}
+      layout="compact"
       onClick={onClick}
     />
   );

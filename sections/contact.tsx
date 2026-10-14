@@ -1,51 +1,20 @@
-import React from "react";
-import FiImage from "@/public/assets/Fi.jpeg";
 import ExportedImage from "next-image-export-optimizer";
 
-const ContactPage: React.FC = () => {
+export default function Contact() {
   return (
-    <div className="bg-white text-black px-6 md:px-20 py-10">
-
-      {/* Content Section */}
-      <div className="relative mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        {/* Image Section */}
-        <div className="relative w-full max-w-lg mx-auto">
-          <ExportedImage
-            src={FiImage}
-            alt="Fi Naezer"
-            width={600}
-            height={600}
-            className="rounded-lg object-cover w-full h-auto"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-          />
+    <section id="contact" className="border-y border-line bg-salt/45">
+      <div className="site-container grid items-center gap-8 py-10 md:grid-cols-[240px_1fr] md:gap-12 lg:grid-cols-[280px_1fr_220px]">
+        <ExportedImage src="/assets/Fi.jpeg" alt="Fi Naezer aan het schilderen" width={2000} height={1932} sizes="(max-width: 767px) 100vw, 280px" className="aspect-square w-full max-w-sm object-cover" />
+        <div>
+          <p className="eyebrow">De maker achter je schilderij</p>
+          <h2 className="mt-4 text-3xl md:text-4xl">Hoi, ik ben Fi.<br />Ik schilder graag iets voor jouw huis.</h2>
+          <p className="mt-5 max-w-xl leading-relaxed text-muted">Ik hou van schilderen, bloemen en tuinieren. Veel van de bloemen op mijn schilderijen groeien in mijn eigen tuin. Die kleur neem ik graag mee naar binnen.</p>
         </div>
-
-        {/* Text Section */}
-        <div className="text-lg leading-relaxed">
-          <h2 className="text-2xl font-bold mb-4">Over Mij</h2>
-          <p>
-            Mijn naam is Fi Naezer en ik hou van tekenen en schilderen. Al vanaf
-            mijn jeugd ben ik dol op kunst. Op school maakte ik graag
-            wenskaarten, posters, tekeningen voor de klas, en greep ik elk
-            moment aan om mijn omgeving mooier te maken met mijn creaties. Die
-            passie draag ik nog steeds bij me.
-          </p>
-          <p className="mt-4">
-            Ik ben geïnspireerd door beroemde kunstenaars zoals Monet, Van Gogh
-            en Escher, en experimenteer graag met verschillende technieken en
-            materialen: olieverf, aquarel, pastel, acryl, batik, en meer.
-          </p>
-          <p className="mt-4">
-            Naast kunst ben ik dol op de natuur en tuinieren. Veel van mijn
-            werken zijn geïnspireerd door bloemen die ik zelf in mijn tuin
-            kweek. Voor mij is dit de perfecte manier om mijn twee passies te
-            combineren.
-          </p>
-
+        <div className="lg:border-l lg:border-line lg:pl-7">
+          <a className="text-link" href="#custom-work">Vertel me je idee <span aria-hidden="true">→</span></a>
+          <p className="mt-4 text-sm leading-relaxed text-muted">Je hoeft nog geen compleet plan te hebben. We kijken samen wat past.</p>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default ContactPage;
+}

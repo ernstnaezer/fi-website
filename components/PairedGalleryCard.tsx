@@ -8,42 +8,36 @@ import ImageOverlay from "./ImageOverlay";
 interface PairedGalleryCardProps {
   main: ArtWork;
   impression: ArtWork;
-  variant?: "dark" | "light";
 }
 
 const PairedGalleryCard: React.FC<PairedGalleryCardProps> = ({
   main,
   impression,
-  variant = "light",
 }) => {
   const [selectedImage, setSelectedImage] = useState<ArtWork | null>(null);
-  const isLight = variant === "light";
-  const metadata = [main.technique, main.size, main.year ? String(main.year) : ""]
+  const metadata = [main.size, main.technique, main.year ? String(main.year) : ""]
     .filter(Boolean)
-    .join(" • ");
-
-  const cardClasses = isLight
-    ? "border-gray-200 bg-white shadow-lg shadow-black/10"
-    : "border-white/10 bg-white/[0.06] shadow-lg shadow-black/20";
-  const imageClasses = isLight ? "bg-gray-100" : "bg-white/5";
-  const titleClasses = isLight ? "text-gray-900" : "text-white";
-  const metadataClasses = isLight ? "text-gray-600" : "text-gray-300";
-  const focusClasses = isLight ? "focus:ring-black/30" : "focus:ring-white/50";
+    .join(" · ");
 
   const renderImagePanel = (work: ArtWork, label: string) => (
     <button
       type="button"
       onClick={() => setSelectedImage(work)}
-      className={`relative aspect-[9/16] w-full overflow-hidden ${imageClasses} focus:outline-none focus:ring-2 ${focusClasses}`}
-      aria-label={`${label}: ${work.title} openen`}
+      className="group block min-w-0 bg-salt text-left focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage"
+      aria-label={`${label}: bekijk ${work.title}`}
+      aria-haspopup="dialog"
     >
-      <ExportedImage
-        src={work.image}
-        alt={work.title}
-        fill
-        style={{ objectFit: "cover" }}
-      />
-      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/65 text-white text-xs font-semibold shadow-sm backdrop-blur-sm">
+      <span className="relative block aspect-[4/5] w-full">
+        <ExportedImage
+          src={work.image}
+          alt={work.title}
+          fill
+          sizes="(max-width: 767px) 50vw, 25vw"
+          style={{ objectFit: "contain" }}
+          className="p-3 sm:p-4"
+        />
+      </span>
+      <span className="block px-3 pb-4 text-center text-sm text-muted underline-offset-4 group-hover:underline">
         {label}
       </span>
     </button>
@@ -51,16 +45,22 @@ const PairedGalleryCard: React.FC<PairedGalleryCardProps> = ({
 
   return (
     <>
-      <article className={`overflow-hidden rounded-2xl border ${cardClasses}`}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-black/10">
-          {renderImagePanel(main, "Schilderij")}
-          {renderImagePanel(impression, "Sfeerimpressie")}
+      <article className="border border-line bg-pearl text-ink">
+        <div className="grid grid-cols-2 gap-px bg-line">
+          {renderImagePanel(main, "Het schilderij")}
+          {renderImagePanel(impression, "Met de omgeving")}
         </div>
 
         <div className="p-5">
-          <h3 className={`text-lg font-semibold leading-snug ${titleClasses}`}>{main.title}</h3>
+          <h3 className="text-2xl leading-snug">{main.title}</h3>
           {metadata && (
-            <p className={`mt-2 text-sm leading-relaxed ${metadataClasses}`}>{metadata}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{metadata}</p>
+          )}
+          {main.price && <p className="mt-3 font-medium">{main.price}</p>}
+          {main.sold && (
+            <p className="mt-3 inline-block border border-line bg-salt px-2 py-1 text-xs font-medium">
+              Verkocht
+            </p>
           )}
         </div>
       </article>

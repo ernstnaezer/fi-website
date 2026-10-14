@@ -26,13 +26,13 @@ const CustomWork: React.FC = () => {
         size: "70 x 150 cm",
         year: 2026,
         image: "/assets/custom-work-3.jpeg",
-        copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
+        copy: "Bloeiende kersentakken in zachte kleuren. Dit grote schilderij is speciaal op aanvraag gemaakt."
       },
       impression: {
         title: "Kersenbloesem in het atelier",
         technique: "Sfeerimpressie",
         image: "/assets/custom-work-3-workshop.jpeg",
-        copy: "Een verstild droomlandschap waarin zachte pasteltinten en bloeiende takken samenkomen in een sfeer van lichtheid en sereniteit. De zwevende bloesems en subtiele bergen creëren een bijna etherische wereld vol zachtheid, hoop en verbeelding. Dit werk nodigt uit tot stilte en verwondering, als een herinnering aan de kwetsbare schoonheid van de natuur."
+        copy: "Het schilderij met kersenbloesem, hier te zien in het atelier."
       }
     },
     {
@@ -42,13 +42,13 @@ const CustomWork: React.FC = () => {
         size: "50 x 70 cm",
         year: 2024,
         image: "/assets/custom-work-2.jpeg",
-        copy: "Dit stralende olieverfschilderij van zonnebloemen en dansende vlinders brengt de ultieme zomerse energie direct in huis. De rijke texturen en warme kleuren vangen het zonlicht, precies zoals bedoeld voor een interieur vol leven en warmte."
+        copy: "Gele zonnebloemen en vlinders, met olieverf op doek geschilderd."
       },
       impression: {
         title: "Zonnebloem met vlinders aan de muur",
         technique: "Sfeerimpressie",
         image: "/assets/custom-work-2-wall.jpeg",
-        copy: "Dit stralende olieverfschilderij van zonnebloemen en dansende vlinders brengt de ultieme zomerse energie direct in huis. De rijke texturen en warme kleuren vangen het zonlicht, precies zoals bedoeld voor een interieur vol leven en warmte."
+        copy: "Zo staat het schilderij met zonnebloemen en vlinders aan de muur."
       }
     },
     {
@@ -58,141 +58,66 @@ const CustomWork: React.FC = () => {
         size: "30 x 40 cm",
         year: 2021,
         image: "/assets/custom-work-1.jpeg",
-        copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
+        copy: "Een ijsvogel in heldere kleuren, geschilderd met acrylverf op doek."
       },
       impression: {
         title: "Ijsvogel aan de muur",
         technique: "Sfeerimpressie",
         image: "/assets/custom-work-1-wall.jpeg",
-        copy: "Dit krachtige acrylwerk toont een ijsvogel in een gedurfde, abstracte en grafische stijl. De dynamische penseelstreken en levendige kleuren vangen de snelheid van de vogel, waardoor een moderne en unieke blik op de natuur ontstaat."
+        copy: "De ijsvogel aan de muur: een klein schilderij met veel kleur."
       }
     },
   ];
 
   return (
-    <div className="bg-gray-100 text-black px-6 md:px-20 py-12 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900">
-            Kunstwerken laten maken
-          </h1>
+    <section id="custom-work" className="site-container section-space" aria-labelledby="custom-heading">
+      <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
+        <div>
+          <p className="eyebrow">Iets laten maken</p>
+          <h2 id="custom-heading" className="mt-4 text-4xl md:text-5xl">Een idee voor jouw muur?</h2>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+            Een lievelingsbloem, de kleuren van je bank of gewoon iets dat je mooi vindt. Vertel het me, dan kijken we samen wat past.
+          </p>
+          <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted">
+            <strong className="font-medium text-ink">Een schilderij laten maken hoeft niet duur te zijn.</strong>{" "}
+            Vertel me wat je wilt uitgeven, dan kijken we samen wat mogelijk is.
+          </p>
+          <ol className="mt-8 space-y-6">
+            <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">1</span><div><h3 className="text-xl">Deel je idee</h3><p className="mt-2 text-sm leading-relaxed text-muted">Vertel me wat je mooi vindt. In een gesprek van 30 minuten bespreken we je idee, de kleuren en het formaat.</p></div></li>
+            <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">2</span><div><h3 className="text-xl">We spreken een prijs af</h3><p className="mt-2 text-sm leading-relaxed text-muted">Je weet vooraf wat het kost. Je betaalt 50% vooraf, daarna ga ik voor je schilderen.</p></div></li>
+            <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">3</span><div><h3 className="text-xl">Na 2 tot 3 maanden in huis</h3><p className="mt-2 text-sm leading-relaxed text-muted">Je schilderij wordt gratis bij je thuisbezorgd.</p></div></li>
+          </ol>
         </div>
-
-        <div className="flex flex-col lg:flex-row gap-16 lg:items-start mb-24">
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-col gap-6 text-gray-700 leading-relaxed">
-              <p className="text-lg md:text-xl">
-                Je kunt ervoor kiezen om een kunstwerk speciaal voor jou te laten
-                maken. Iets wat je aanspreekt en niet direct tussen mijn kunstwerken
-                zit.
-              </p>
-              <p className="text-lg md:text-xl">
-                Stuur een bericht met je wensen en eerste ideeën via het formulier op de website.
-              </p>
-              <p className="text-lg md:text-xl">
-                Een opdracht is vaak een langer proces waar ik graag de tijd neem om
-                je wens te begrijpen. We spreken een prijs en levertijd vooraf af, zodat we
-                allebei precies weten waar we aan toe zijn.
-              </p>
+        <div className="border border-line bg-salt p-6 sm:p-9">
+          <h3 className="text-3xl">Vertel me je idee</h3>
+          <p className="mb-7 mt-3 text-sm leading-relaxed text-muted">Je spreekt gewoon met mij, de maker.</p>
+          {status === "success" ? (
+            <div role="status" className="py-8">
+              <h3 className="text-2xl">Bedankt voor je bericht!</h3>
+              <p className="mt-4 leading-relaxed text-muted">Ik neem contact met je op om een gesprek van 30 minuten te plannen.</p>
+              <button type="button" onClick={() => setStatus("idle")} className="text-link mt-7">Nog een bericht sturen</button>
             </div>
-          </div>
-
-          <div className="w-full lg:w-1/2 bg-white p-8 md:p-10 rounded-2xl shadow-2xl border border-gray-100 animate-fade-in">
-            <h2 className="text-2xl font-bold mb-2 text-gray-900">Direct een aanvraag doen</h2>
-            <p className="text-gray-500 mb-8 text-sm">Heb je al een idee voor een persoonlijk werk?</p>
-
-            {status === "success" ? (
-              <div className="flex flex-col items-center justify-center py-10 text-center animate-fade-in">
-                <h3 className="text-2xl font-bold text-green-600 mb-4">Verzonden!</h3>
-                <p className="text-gray-700 text-lg">Bedankt voor je interesse. Ik neem binnenkort contact met je op.</p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="mt-8 text-gray-500 underline hover:text-black transition"
-                >
-                  Nog een bericht sturen
-                </button>
-              </div>
-            ) : (
-              <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-5">
-                <input type="hidden" name="title" value="persoonlijk werk" />
-                <input type="hidden" name="isCustom" value="true" />
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700 ml-1">Naam</label>
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Je naam"
-                    className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:bg-white outline-none transition"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700 ml-1">E-mailadres</label>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="naam@voorbeeld.nl"
-                    className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:bg-white outline-none transition"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700 ml-1">Je wensen</label>
-                  <textarea
-                    name="message"
-                    required
-                    placeholder="Beschrijf hier kort je ideeën (onderwerp, techniek, formaat)..."
-                    className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:bg-white outline-none h-40 resize-none transition"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="w-full bg-black text-white py-4 mt-2 rounded-full font-bold text-lg hover:bg-gray-800 transition shadow-lg disabled:opacity-50"
-                >
-                  {status === "sending" ? "Bezig met verzenden..." : "Aanvraag versturen"}
-                </button>
-
-                {status === "error" && (
-                  <p className="text-red-500 text-sm text-center mt-2">
-                    Fout bij verzenden. Mail a.u.b. naar info@finaezer.nl
-                  </p>
-                )}
-              </form>
-            )}
-          </div>
-        </div>
-
-        <div className="mt-4 pt-14 md:pt-20 border-t border-gray-300 mb-20">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-                Voorgaande opdrachten
-              </h2>
-              <p className="mt-3 text-gray-600 text-lg max-w-3xl">
-                Een selectie van eerder gemaakte werken op aanvraag. Elk werk begint met een persoonlijk idee en wordt vooraf afgestemd op formaat, stijl en planning.
-              </p>
-            </div>
-            <p className="text-sm uppercase tracking-[0.2em] text-gray-500">Opdrachtwerk</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {examples.map((example) => (
-              <PairedGalleryCard
-                key={example.main.title}
-                main={example.main}
-                impression={example.impression}
-                variant="light"
-              />
-            ))}
-          </div>
+          ) : (
+            <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-5">
+              <input type="hidden" name="title" value="persoonlijk werk" />
+              <input type="hidden" name="isCustom" value="true" />
+              <div><label className="form-label" htmlFor="custom-name">Naam</label><input id="custom-name" name="name" autoComplete="name" required className="field" placeholder="Je naam" /></div>
+              <div><label className="form-label" htmlFor="custom-email">E-mailadres</label><input id="custom-email" name="email" type="email" autoComplete="email" required className="field" placeholder="naam@voorbeeld.nl" /></div>
+              <div><label className="form-label" htmlFor="custom-message">Wat zou je mooi vinden?</label><textarea id="custom-message" name="message" required rows={4} className="field resize-y" placeholder="Vertel iets over je kamer, je favoriete kleuren of je idee." /></div>
+              <button type="submit" disabled={status === "sending"} className="button w-full">{status === "sending" ? "Bezig met versturen…" : "Verstuur je bericht"}</button>
+              {status === "error" && <p role="alert" className="form-status text-red-800">Versturen is niet gelukt. Probeer het opnieuw of mail naar <a className="underline" href="mailto:info@finaezer.nl">info@finaezer.nl</a>.</p>}
+            </form>
+          )}
         </div>
       </div>
-    </div>
+      <div className="mt-14 border-t border-line pt-10">
+        <h2 className="section-heading">Al eerder gemaakt</h2>
+        <p className="mb-7 mt-3 text-sm leading-relaxed text-muted">Ieder schilderij begon met een idee. Klik op een foto om het van dichtbij te bekijken.</p>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {examples.map((example) => <PairedGalleryCard key={example.main.title} main={example.main} impression={example.impression} />)}
+        </div>
+      </div>
+    </section>
   );
 };
 

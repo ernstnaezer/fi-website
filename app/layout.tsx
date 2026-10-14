@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { bodyFont, displayFont } from "@/utils/fonts";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://finaezer.nl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Fi Naezer - Bloemen schilderijen",
-  description: "Bloemen schilderijen en tekeningen",
+  title: "Fi Naezer — Schilderijen voor thuis",
+  description: "Een echt schilderij voor de huiskamer of kinderkamer. Kies iets moois uit of laat Fi iets voor je maken. Met de hand geschilderd, met een duidelijke prijs.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Fi Naezer - Bloemen schilderijen",
-    description: "Bloemen schilderijen en tekeningen",
+    title: "Fi Naezer — Schilderijen voor thuis",
+    description: "Iets eigens voor aan je muur. Ontdek de huiskamer- en kinderkamerschilderijen van Fi Naezer.",
     url: "/",
     siteName: "Fi Naezer",
     locale: "nl_NL",
@@ -21,15 +24,15 @@ export const metadata: Metadata = {
       {
         url: "/og-image.jpg",
         width: 1200,
-          height: 630,
-        alt: "Fi Naezer kunstwerk",
+        height: 630,
+        alt: "Een schilderij van Fi Naezer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fi Naezer - Bloemen schilderijen",
-    description: "Bloemen schilderijen en tekeningen",
+    title: "Fi Naezer — Schilderijen voor thuis",
+    description: "Iets eigens voor aan je muur. Met de hand geschilderd voor de huiskamer en kinderkamer.",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -49,8 +52,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+    <html lang="nl" className={`${displayFont.variable} ${bodyFont.variable}`}>
+      <body>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { displayFont } from "@/utils/fonts";
+import ExportedImage from "next-image-export-optimizer";
 import GalleryCard from "@/components/GalleryCard";
 import KinderkamerContactSection from "@/components/KinderkamerContactSection";
 
 export const metadata: Metadata = {
-  title: "Kinderkamer schilderijen — Fi Naezer",
+  title: "Een schilderij voor de kinderkamer — Fi Naezer",
   description:
-    "Op aanvraag gemaakte schilderijen voor kinderkamers, afgestemd op sfeer en kleuren. Vaste prijs: 75 euro per stuk.",
+    "Een schilderij voor de kinderkamer, speciaal voor jouw kind gemaakt. Kies het onderwerp en de kleuren. 40 × 40 cm voor €75. Ook te geven met een cadeaubon.",
   alternates: {
     canonical: "/kinderkamer",
   },
   openGraph: {
-    title: "Kinderkamer schilderijen — Fi Naezer",
+    title: "Een schilderij voor de kinderkamer — Fi Naezer",
     description:
-      "Op aanvraag gemaakte schilderijen voor kinderkamers, afgestemd op sfeer en kleuren. Vaste prijs: 75 euro per stuk.",
+      "Een schilderij voor de kinderkamer, speciaal voor jouw kind gemaakt. Kies het onderwerp en de kleuren. 40 × 40 cm voor €75. Ook te geven met een cadeaubon.",
     url: "/kinderkamer",
     siteName: "Fi Naezer",
     locale: "nl_NL",
@@ -30,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kinderkamer schilderijen — Fi Naezer",
+    title: "Een schilderij voor de kinderkamer — Fi Naezer",
     description:
-      "Op aanvraag gemaakte schilderijen voor kinderkamers, afgestemd op sfeer en kleuren. Vaste prijs: 75 euro per stuk.",
+      "Een schilderij voor de kinderkamer, speciaal voor jouw kind gemaakt. Kies het onderwerp en de kleuren. 40 × 40 cm voor €75. Ook te geven met een cadeaubon.",
     images: ["/og-image-kinderkamer.jpg"],
   },
 };
@@ -69,68 +68,99 @@ const showcaseItems: KinderkamerItem[] = [
 
 export default function KinderkamerPage() {
   return (
-    <main className="bg-[#F5F2ED] text-black min-h-screen">
-      <section className="relative overflow-hidden bg-gray-900 text-[#F5F2ED] px-6 md:px-12 py-16 md:py-24">
-        <div className="absolute inset-0 opacity-25">
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
-
-        <div className="relative max-w-6xl mx-auto">
-          <p className="uppercase tracking-[0.25em] text-xs md:text-sm text-[#EBDCC7] mb-3">
-            Kinderkamer collectie
-          </p>
-          <h1 className={`${displayFont.className} text-4xl md:text-6xl font-bold leading-tight max-w-4xl`}>
-            Schilderijen voor kinderkamers
+    <main id="main-content" className="bg-pearl text-ink">
+      <section className="site-container section-space grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <p className="eyebrow">Kinderkamerschilderijen</p>
+          <h1 className="mt-5 max-w-xl text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
+            Een eigen wereldje aan de muur.
           </h1>
-          <p className="mt-6 text-lg md:text-2xl max-w-3xl text-[#F5F2ED]/90 leading-relaxed">
-            Elke kinderkamer verdient een mooi schilderij. Ik maak deze op aanvraag, persoonlijk en afgestemd op de sfeer en kleuren van de kamer. Perfect als origineel cadeau of om je eigen kinderkamer te verrijken. Het formaat is 40x40 cm, voor een vaste prijs van 75 euro per stuk.
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+            Een aapje, een koala of een lievelingsdier. Ik schilder iets dat past
+            bij de kamer van je kind, met de kleuren en het onderwerp die jullie
+            mooi vinden.
           </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-              href="#aanvraag"
-              className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition"
-            >
-              Start je aanvraag of geef een cadeaubon
+          <div className="mt-7 max-w-lg">
+            <p className="font-display text-2xl leading-snug sm:text-3xl">
+              Voor €75 maak ik een schilderij,<br />
+              speciaal voor jouw kind.
+            </p>
+            <p className="mt-3 text-sm text-muted">40 × 40 cm · vaste prijs</p>
+          </div>
+          <div className="mt-8 flex flex-col items-start gap-5">
+            <a href="#aanvraag" className="button button-secondary">
+              Laat iets voor je kind maken <span aria-hidden="true">→</span>
             </a>
+            <p className="text-sm text-muted">
+              Leuk als kraamcadeau:{" "}
+              <a href="#cadeaubon" className="text-link text-ink">
+                geef een cadeaubon <span aria-hidden="true">→</span>
+              </a>
+            </p>
           </div>
         </div>
-        
-      </section>
 
-      <section className="bg-gray-900 text-white px-6 md:px-12 py-14 md:py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Voorgaande opdrachten</h2>
-              <p className="mt-3 text-gray-300 text-lg">Een selectie van eerder gemaakte werken.</p>
-            </div>
-            <p className="text-sm uppercase tracking-[0.2em] text-gray-400">Alleen op commissie</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {showcaseItems.map((item) => (
-              <GalleryCard
-                key={`${item.title}-${item.date}`}
-                title={item.title}
-                image={item.image}
-                metadata={[`Datum: ${item.date}`]}
-                imageAspect="aspect-[9/16]"
+        <div className="bg-salt p-5 sm:p-8">
+          <p className="eyebrow mb-6">Al eerder gemaakt</p>
+          <div className="grid grid-cols-2 items-center gap-4 sm:gap-6">
+            <figure>
+              <ExportedImage
+                src="/assets/custom-kinderkamer-3.jpeg"
+                alt="Een koala met een saxofoon, geschilderd voor Laurie"
+                width={1291}
+                height={1600}
+                sizes="(max-width: 640px) 40vw, (max-width: 1024px) 42vw, 22vw"
+                priority
+                className="h-auto w-full object-contain"
               />
-            ))}
+              <figcaption className="mt-3 text-center text-xs leading-relaxed text-muted sm:text-sm">
+                Koalabeer voor Laurie
+              </figcaption>
+            </figure>
+            <figure className="pt-8">
+              <ExportedImage
+                src="/assets/custom-kinderkamer-4.jpeg"
+                alt="Een aapje aan een tak, geschilderd voor Rafi"
+                width={1560}
+                height={1600}
+                sizes="(max-width: 640px) 40vw, (max-width: 1024px) 42vw, 22vw"
+                className="h-auto w-full object-contain"
+              />
+              <figcaption className="mt-3 text-center text-xs leading-relaxed text-muted sm:text-sm">
+                Aapje voor Rafi
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <div id="aanvraag">
-        <KinderkamerContactSection />
-      </div>
+      <section className="site-container section-space border-t border-line" aria-labelledby="voorbeelden-heading">
+        <div className="mb-8 max-w-2xl">
+          <p className="eyebrow">Een paar voorbeelden</p>
+          <h2 id="voorbeelden-heading" className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
+            Voor ieder kind iets eigens.
+          </h2>
+          <p className="mt-4 leading-relaxed text-muted">
+            Deze schilderijen maakte ik al voor andere kinderen. Ze zijn niet te
+            koop, maar laten zien wat er mogelijk is. Voor jou maak ik een nieuw
+            schilderij.
+          </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {showcaseItems.map((item) => (
+            <GalleryCard
+              key={`${item.title}-${item.date}`}
+              title={item.title}
+              image={item.image}
+              metadata={[item.date]}
+              badge="Eerder gemaakt"
+              imageAspect="aspect-[4/5]"
+            />
+          ))}
+        </div>
+      </section>
 
-      <footer className="bg-white border-t border-gray-200 px-6 py-6 text-center text-sm text-gray-500">
-        <Link href="/" className="hover:text-black transition">
-          ← Terug naar finaezer.nl
-        </Link>
-      </footer>
+      <KinderkamerContactSection />
     </main>
   );
 }

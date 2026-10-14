@@ -1,40 +1,24 @@
-"use client";
-import React from "react";
-import dynamic from "next/dynamic";
-
 import Hero from "@/sections/hero";
-import GridOverview from "@/sections/overview";
+import Overview from "@/sections/overview";
 import Contact from "@/sections/contact";
 import CustomWork from "@/sections/customwork";
+import Kinderkamer from "@/sections/kinderkamer";
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section id="hero">
-        <Hero />
-      </section>
-
-      {/* Grid Overview Section */}
-      <section id="projects">
-        <GridOverview />
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact">
-        <Contact />
-      </section>
-
-      {/* Custom Work Section */}
-      <section id="custom-work">
-        <CustomWork />
-      </section>
-    </div>
+    <main id="main-content">
+      <Hero />
+      <div className="site-container">
+        <ul className="flex flex-col gap-3 border-y border-line py-5 text-xs sm:flex-row sm:justify-between sm:gap-6 md:text-sm">
+          <li><span className="mr-2 text-clay" aria-hidden="true">✓</span> Voor de huiskamer én de kinderkamer</li>
+          <li><span className="mr-2 text-clay" aria-hidden="true">✓</span> Je hoeft niets van kunst te weten</li>
+          <li><span className="mr-2 text-clay" aria-hidden="true">✓</span> Je weet vooraf wat het kost</li>
+        </ul>
+      </div>
+      <Kinderkamer />
+      <Overview />
+      <Contact />
+      <CustomWork />
+    </main>
   );
-};
-
-export default dynamic(() => Promise.resolve(HomePage), {
-  ssr: false,
-});
-
-// export default HomePage;
+}
