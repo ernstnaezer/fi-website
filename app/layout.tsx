@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-huiskamer-e7e396b73e.jpg",
+        url: "/og-huiskamer-a61e81b94e.jpg",
         width: 1200,
         height: 630,
         alt: "Fi Naezer — een schilderij voor je huiskamer",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fi Naezer — Schilderijen voor thuis",
     description: "Iets eigens voor aan je muur. Met de hand geschilderd voor de huiskamer en kinderkamer.",
-    images: ["/og-huiskamer-e7e396b73e.jpg"],
+    images: ["/og-huiskamer-a61e81b94e.jpg"],
   },
   icons: {
     apple: "/apple-touch-icon.png",

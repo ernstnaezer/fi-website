@@ -103,12 +103,12 @@ export default function KinderkamerContactSection() {
           </div>
         </fieldset>
 
-        <div id="kinderkamer-form-panel" className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+        <div id="kinderkamer-form-panel" className="grid gap-8 lg:grid-cols-2 lg:gap-3">
           <div className="py-3 lg:py-8">
             {isCadeaubon ? (
               <div className="max-w-lg">
                 <ExportedImage
-                  src="/assets/cadeaubon-sample.png"
+                  src="/assets/cadeaubon-sample.webp"
                   alt="Voorbeeld van de digitale cadeaubon voor een kinderkamerschilderij"
                   width={1536}
                   height={1024}
