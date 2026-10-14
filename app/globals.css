@@ -40,11 +40,20 @@
   .brand { @apply font-display text-[2.1rem] leading-none tracking-[-0.04em]; }
   .hero-layout { @apply grid items-center gap-9 py-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 lg:py-5; }
   .hero-title { font-size: clamp(3rem, 5.5vw, 4.875rem); line-height: 1.03; letter-spacing: -0.035em; }
-  .hero-room { @apply relative isolate overflow-hidden bg-salt; aspect-ratio: 1.09; }
-  .hero-room-photo { width: 100%; height: auto; filter: brightness(1.1); }
-  .hero-painting { position: absolute; left: 43%; top: 14.5%; width: 34.5%; transform: rotate(1.5deg); border: 5px solid #c2a178; box-shadow: 6px 12px 23px #20231538; }
+  .hero-room { @apply relative isolate overflow-hidden bg-salt; }
+  .hero-room-scene { @apply relative overflow-hidden aspect-[4/3] sm:aspect-[1.09]; }
+  .hero-room-photo { @apply h-full w-full object-cover sm:h-auto; filter: brightness(1.1); }
+  .hero-painting {
+    @apply top-[8%] w-[28%] border-[3px] sm:top-[14.5%] sm:w-[34.5%] sm:border-[5px];
+    position: absolute;
+    left: 43%;
+    transform: rotate(1.5deg);
+    border-style: solid;
+    border-color: #c2a178;
+    box-shadow: 6px 12px 23px #20231538;
+  }
   .hero-painting img { width: 100%; height: auto; }
-  .hero-caption { @apply absolute bottom-4 left-4 right-4 flex items-center justify-between gap-4 bg-pearl/95 p-4 text-xs sm:bottom-6 sm:left-6 sm:right-auto sm:gap-8; }
+  .hero-caption { @apply relative flex items-center justify-between gap-4 bg-pearl/95 p-3 text-xs sm:absolute sm:bottom-6 sm:left-6 sm:right-auto sm:gap-8 sm:p-4; }
   .kids-preview { @apply grid items-center gap-8 py-10 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:py-12; }
 }
 

@@ -23,13 +23,15 @@ export default function Hero() {
         </Link>
       </div>
       <figure className="hero-room">
-        <ExportedImage src="/assets/woonkamer.jpeg" alt="Een lichte woonkamer met een witte bank" width={1600} height={2133} sizes="(max-width: 1023px) 100vw, 650px" className="hero-room-photo" priority />
-        <div className="hero-painting">
-          <ExportedImage src={painting.image} alt={painting.title} width={1574} height={2000} sizes="(max-width: 1023px) 35vw, 230px" priority />
+        <div className="hero-room-scene">
+          <ExportedImage src="/assets/woonkamer.jpeg" alt="Een lichte woonkamer met een witte bank" width={1600} height={2133} sizes="(max-width: 1023px) 100vw, 650px" className="hero-room-photo" priority />
+          <div className="hero-painting">
+            <ExportedImage src={painting.image} alt={painting.title} width={1574} height={2000} sizes="(max-width: 639px) 28vw, (max-width: 1023px) 35vw, 230px" priority />
+          </div>
+          <span className="absolute left-4 top-1 text-[8px] uppercase tracking-wider text-ink/80 sm:top-3 sm:text-[9px]">Fotomontage · lijst ter illustratie</span>
         </div>
-        <span className="absolute left-4 top-3 text-[8px] uppercase tracking-wider text-ink/80 sm:text-[9px]">Fotomontage · lijst ter illustratie</span>
         <figcaption className="hero-caption">
-          <span><strong className="mb-1 block text-sm font-medium">{painting.title}</strong><span>{painting.size} · met de hand geschilderd</span></span>
+          <span><strong className="mb-1 block text-sm font-medium">{painting.title}</strong><span>{painting.size}<span className="hidden sm:inline"> · met de hand geschilderd</span></span></span>
           <span className="shrink-0 font-display text-2xl">{painting.price?.replace(",-", "")}</span>
         </figcaption>
       </figure>
