@@ -132,7 +132,7 @@ export default function KinderkamerContactSection() {
                 <h3 className="mt-4 text-3xl sm:text-4xl">Iets dat echt bij de kamer past.</h3>
                 <ol className="mt-7 space-y-6">
                   <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">1</span><div><h4 className="font-display text-xl">Deel je idee</h4><p className="mt-2 text-sm leading-relaxed text-muted">Vertel me wat je mooi vindt. In een gesprek van 30 minuten bespreken we je idee.</p></div></li>
-                  <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">2</span><div><h4 className="font-display text-xl">Na 2 tot 3 weken in huis</h4><p className="mt-2 text-sm leading-relaxed text-muted">Je schilderij wordt gratis bij je thuisbezorgd. Je betaalt pas bij bezorging.</p></div></li>
+                  <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">2</span><div><h4 className="font-display text-xl">In ca. 4 weken in huis</h4><p className="mt-2 text-sm leading-relaxed text-muted">Je schilderij wordt gratis bij je thuisbezorgd. Je betaalt pas bij bezorging.</p></div></li>
                 </ol>
                 <dl className="mt-7 divide-y divide-line border-y border-line text-sm">
                   <div className="flex justify-between gap-4 py-4">

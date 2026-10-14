@@ -1,12 +1,36 @@
 import { ArtWork } from "@/types";
 
 export const artworks: ArtWork[] = [
+  {
+    title: "Peren",
+    technique: "Olie op papier",
+    size: "30 x 40 cm",
+    image: "/assets/IMG_0376.jpeg",
+    price: "€ 75,-",
+    copy: "Groene peren met lange schaduwen in blauw en geel."
+  },
+  {
+    title: "Pruimen",
+    technique: "Olie op papier",
+    size: "30 x 40 cm",
+    image: "/assets/IMG_0495.jpeg",
+    price: "€ 75,-",
+    copy: "Pruimen in paars, rood en geel op een lichte achtergrond."
+  },
+  {
+    title: "Groenten op schaal",
+    technique: "Olie op papier",
+    size: "30 x 40 cm",
+    image: "/assets/IMG_0496.jpeg",
+    price: "€ 75,-",
+    copy: "Groene en gele groenten op een schaal, met blauwe schaduwen."
+  },
   {  title: "Irissen",
     technique: "olie op doek",
     size: "50 x 70 cm",
     year: 2026,
     image: "/assets/IMG_4960.jpeg",
-    price: "€ 275,-",
+    price: "€ 395,-",
     copy: "Irissen tussen groene takken en zachte blauwe en paarse kleuren. Met olieverf op doek geschilderd."
   },
   {  title: "Wisteria",
@@ -14,7 +38,7 @@ export const artworks: ArtWork[] = [
     size: "60 x 80 cm",
     year: 2026,
     image: "/assets/IMG_4380.jpeg",
-    price: "€ 275,-",
+    price: "€ 395,-",
     copy: "Een brug tussen bloeiende blauweregen, met licht en kleur op het water. Een stukje tuin voor aan je muur."
   },
   {  title: "Wisteria",
@@ -22,7 +46,7 @@ export const artworks: ArtWork[] = [
     size: "50 x 70 cm",
     year: 2026,
     image: "/assets/IMG_4220.jpeg",
-    price: "€ 275,-",
+    price: "€ 395,-",
     copy: "Een brug, hangende bloesems en hun spiegeling in het water. Geschilderd in zachte kleuren."
   },
   {
@@ -32,7 +56,7 @@ export const artworks: ArtWork[] = [
     year: 2024,
     image: "/assets/IMG_1249.jpeg",
     copy: "Een zachtroze Engelse roos met groene bladeren, geschilderd op een lichte achtergrond.",
-    price: "€ 275,-",
+    price: "€ 195,-",
   },
   {
     title: "Rozen en hortensia’s",
@@ -40,7 +64,7 @@ export const artworks: ArtWork[] = [
     size: "50 x 60 cm",
     year: 2024,
     image: "/assets/IMG_2488.jpeg",
-    price: "€ 275,-",
+    price: "€ 295,-",
     copy: "Een bos rozen en hortensia’s in roze, rood en paars, met diepgroene bladeren."
   },
   {
@@ -49,7 +73,7 @@ export const artworks: ArtWork[] = [
     size: "50 x 70 cm",
     year: 2024,
     image: "/assets/IMG_1707.jpeg",
-    price: "€ 275,-",
+    price: "€ 295,-",
     copy: "Zachtroze rozen langs een tak. Een bloemenschilderij in rustige kleuren."
   },
   
@@ -58,7 +82,7 @@ export const artworks: ArtWork[] = [
     size: "20 x 30 cm",
     year: 2026,
     image: "/assets/IMG_4897.jpeg",
-    price: "€ 50,-",
+    sold: true,
     copy: "Lentetakken tegen een lichte lucht. Met pastelkrijt op papier getekend."
   },
  {

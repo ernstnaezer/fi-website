@@ -8,7 +8,7 @@ export default function Contact() {
         <div>
           <p className="eyebrow">De maker achter je schilderij</p>
           <h2 className="mt-4 text-3xl md:text-4xl">Hoi, ik ben Fi.<br />Ik schilder graag iets voor jouw huis.</h2>
-          <p className="mt-5 max-w-xl leading-relaxed text-muted">Ik hou van schilderen, bloemen en tuinieren. Veel van de bloemen op mijn schilderijen groeien in mijn eigen tuin. Die kleur neem ik graag mee naar binnen.</p>
+          <p className="mt-5 max-w-xl leading-relaxed text-muted">Ik hou van de natuur, van schilderen en van tuinieren. Veel van de bloemen op mijn schilderijen groeien in mijn eigen tuin. Die kleur neem ik graag mee naar binnen. Voor een huis waar het fijn thuiskomen is.</p>
         </div>
         <div className="lg:border-l lg:border-line lg:pl-7">
           <a className="text-link" href="#custom-work">Vertel me je idee <span aria-hidden="true">→</span></a>
