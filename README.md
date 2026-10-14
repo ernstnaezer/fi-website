@@ -28,6 +28,7 @@ Beide CI-jobs gebruiken expliciet Ubuntu 24.04. De checkout-, Node-setup-, cache
 - Kleuren en gedeelde stijlen: `tailwind.config.ts` en `app/globals.css`.
 - Lettertypen: DM Sans en DM Serif Display, lokaal aangeboden via `next/font`.
 - Favicon en app-iconen: de oorspronkelijke roos in zacht oudroze en saliegroen, met transparante achtergrond. Gebruik `public/android-chrome-512x512.png` als basis voor de kleinere PNG- en ICO-formaten. `public/site.webmanifest` gebruikt Pearl als thema- en achtergrondkleur.
+- Linkpreviews: `public/og-huiskamer-e7e396b73e.jpg` en `public/og-kinderkamer-b3d69b7a15.jpg` zijn JPEGs van 1200 × 630 pixels in de huidige huisstijl. De Open Graph- en Twitter-verwijzingen staan in `app/layout.tsx` en `app/kinderkamer/page.tsx`. Geef een vervangende afbeelding een nieuwe inhoudshash in de bestandsnaam en werk beide verwijzingen bij; deelplatformen kunnen oude previews cachen.
 - Schilderijen, prijzen en verkochte werken: `data/artworks.ts`. De hero gebruikt dezelfde gegevens als de galerij.
 - Kinderkamervoorbeelden en vaste prijs: `app/kinderkamer/page.tsx`; de homepage-intro staat in `sections/kinderkamer.tsx`.
 - Houd de Kinderkamerprijs op beide pagina's gelijk vormgegeven: een persoonlijk aanbod in een zin, met formaat en vaste prijs op een aparte regel.

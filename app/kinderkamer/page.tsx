@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image-kinderkamer.jpg",
+        url: "/og-kinderkamer-b3d69b7a15.jpg",
         width: 1200,
         height: 630,
-        alt: "Kinderkamer schilderijen door Fi Naezer",
+        alt: "Fi Naezer — kinderkamerschilderijen met een koala en een aapje",
       },
     ],
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Een schilderij voor de kinderkamer — Fi Naezer",
     description:
       "Een schilderij voor de kinderkamer, speciaal voor jouw kind gemaakt. Kies het onderwerp en de kleuren. 40 × 40 cm voor €75. Ook te geven met een cadeaubon.",
-    images: ["/og-image-kinderkamer.jpg"],
+    images: ["/og-kinderkamer-b3d69b7a15.jpg"],
   },
 };
 
