@@ -74,13 +74,12 @@ const CustomWork: React.FC = () => {
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
         <div>
           <p className="eyebrow">Iets laten maken</p>
-          <h2 id="custom-heading" className="mt-4 text-4xl md:text-5xl">Een idee voor jouw muur?</h2>
+          <h2 id="custom-heading" className="mt-3 text-3xl md:text-4xl">Een idee voor jouw huiskamer?</h2>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
-            Een lievelingsbloem, de kleuren van je bank of gewoon iets dat je mooi vindt. Vertel het me, dan kijken we samen wat past.
+            Een mooie herinnering van een vakantie, een bijzonder moment, een landschap of gewoon iets dat je mooi vindt. Vertel het me, dan kijken we samen wat kan.
           </p>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted">
-            <strong className="font-medium text-ink">Een schilderij laten maken hoeft niet duur te zijn.</strong>{" "}
-            Vertel me wat je wilt uitgeven, dan kijken we samen wat mogelijk is.
+            <strong className="font-medium text-ink">Een schilderij laten maken hoeft niet duur te zijn.</strong>.
           </p>
           <ol className="mt-8 space-y-6">
             <li className="flex gap-4"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-xs">1</span><div><h3 className="text-xl">Deel je idee</h3><p className="mt-2 text-sm leading-relaxed text-muted">Vertel me wat je mooi vindt. In een gesprek van 30 minuten bespreken we je idee, de kleuren en het formaat.</p></div></li>
@@ -90,7 +89,7 @@ const CustomWork: React.FC = () => {
         </div>
         <div className="border border-line bg-salt p-6 sm:p-9">
           <h3 className="text-3xl">Vertel me je idee</h3>
-          <p className="mb-7 mt-3 text-sm leading-relaxed text-muted">Je spreekt gewoon met mij, de maker.</p>
+          <p className="mb-7 mt-3 text-sm leading-relaxed text-muted">Je spreekt gewoon met Fi.</p>
           {status === "success" ? (
             <div role="status" className="py-8">
               <h3 className="text-2xl">Bedankt voor je bericht!</h3>
@@ -103,7 +102,7 @@ const CustomWork: React.FC = () => {
               <input type="hidden" name="isCustom" value="true" />
               <div><label className="form-label" htmlFor="custom-name">Naam</label><input id="custom-name" name="name" autoComplete="name" required className="field" placeholder="Je naam" /></div>
               <div><label className="form-label" htmlFor="custom-email">E-mailadres</label><input id="custom-email" name="email" type="email" autoComplete="email" required className="field" placeholder="naam@voorbeeld.nl" /></div>
-              <div><label className="form-label" htmlFor="custom-message">Wat zou je mooi vinden?</label><textarea id="custom-message" name="message" required rows={4} className="field resize-y" placeholder="Vertel iets over je kamer, je favoriete kleuren of je idee." /></div>
+              <div><label className="form-label" htmlFor="custom-message">Wat zou je mooi vinden?</label><textarea id="custom-message" name="message" required rows={4} className="field resize-y" placeholder="Heb je al een idee, laat het me weten. Anders ontdekken we het samen tijdens ons gesprek." /></div>
               <button type="submit" disabled={status === "sending"} className="button w-full">{status === "sending" ? "Bezig met versturen…" : "Verstuur je bericht"}</button>
               {status === "error" && <p role="alert" className="form-status text-red-800">Versturen is niet gelukt. Probeer het opnieuw of mail naar <a className="underline" href="mailto:info@finaezer.nl">info@finaezer.nl</a>.</p>}
             </form>

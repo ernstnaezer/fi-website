@@ -11,7 +11,7 @@ export default function Hero() {
         <p className="eyebrow">Huiskamerschilderijen</p>
         <h1 className="hero-title mt-5">Een schilderij<br />voor je huiskamer.</h1>
         <p className="mt-6 max-w-[29rem] text-lg leading-relaxed text-muted lg:text-[19px]">
-          Een echt schilderij maakt je kamer net wat meer van jou. Kies iets moois uit, of laat me iets voor jouw muur maken.
+          Een echt schilderij maakt je kamer net wat meer van jou. Kies iets moois uit van de bestaande collectie, of laat me iets persoonlijk voor jouw kamer maken.
         </p>
         <div className="mt-7 flex flex-col items-start gap-5">
           <Link className="button" href="#projects">Bekijk de schilderijen <span aria-hidden="true">→</span></Link>
