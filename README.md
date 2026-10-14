@@ -4,7 +4,7 @@ Schilderijen voor de huiskamer en kinderkamer. Next.js 15, React 19, Tailwind CS
 
 ## Lokaal draaien
 
-Gebruik Node 20, zoals in de deployworkflow.
+Gebruik Node 24 LTS, zoals in de deployworkflow.
 
 ```sh
 yarn install --frozen-lockfile
@@ -18,6 +18,8 @@ yarn build
 ```
 
 Dit controleert ook linting en TypeScript, maakt de statische site in `out/` en optimaliseert de afbeeldingen. Een push naar `main` publiceert via `.github/workflows/nextjs.yml`.
+
+Beide CI-jobs gebruiken expliciet Ubuntu 24.04. De checkout-, Node-setup-, cache-, upload- en deployacties gebruiken Node 24; de Pages-uploadactie neemt `upload-artifact` v7 mee. Installatie in CI gebruikt `yarn install --frozen-lockfile`.
 
 ## Ontwerp en inhoud
 
@@ -56,6 +58,17 @@ Het volledige lokale archief staat **buiten deze repository**:
 Het bevat de originele broncode, volledige Git-bundle, de rechtstreeks gedownloade gepubliceerde site, screenshots en controlesommen. `Open archive.command` opent de oude site zonder internet; `LEESMIJ.md` beschrijft veilig terugzetten naar een aparte map. De historische webbestanden zijn niet uit de nieuwe `out/`-map afkomstig.
 
 Bewaar dit archief ook op een andere schijf of in eigen cloudopslag. Het archief en de tag zijn niet naar GitHub gepusht.
+
+## Dependency-onderhoud
+
+Next.js en de bijbehorende ESLint-configuratie zijn bijgewerkt naar de gepatchte 15.5.27-lijn. React, de afbeeldingsoptimizer en de overige dependencies zijn binnen hun bestaande major-versies bijgewerkt. Node 24 is de build- en ontwikkelruntime.
+
+De gerichte `resolutions` in `package.json` zijn beveiligingsupdates voor vastgepinde transitieve dependencies:
+
+- `next/postcss`: gebruikt de gepatchte PostCSS 8.5-lijn in plaats van Next's vastgepinde 8.4.31.
+- `tailwindcss/**/postcss-selector-parser`: gebruikt de [gepatchte 7.1.6-lijn](https://github.com/advisories/GHSA-rj75-hqrm-r3gf). De gegenereerde CSS van deze site is vóór en na deze override byte-identiek gecontroleerd.
+
+Audit op 14 oktober 2026: geen kritieke, middelhoge of lage meldingen. Eén [hoge kwetsbaarheid in `braces`](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) blijft via drie dependency-paden in Tailwind en ESLint aanwezig; upstream heeft nog geen gepatchte versie. Dit betreft patroonverwerking tijdens build/lint. GitHub Pages serveert alleen de statische export; bezoekersinvoer wordt niet aan deze buildtools doorgegeven. De melding wordt niet onderdrukt.
 
 ## Uitgevoerde controle
 
